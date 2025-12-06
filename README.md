@@ -1,6 +1,10 @@
 # RES=RAG — Relational Equilibrium Framework
 
-**RES=RAG** (Relational Equilibrium between Substrate and Generation) is a formal theoretical framework developed by **Jean-Charles Tassan** for modeling consciousness and human–machine interaction as a **dynamic relational equilibrium**, rather than an intrinsic property of isolated systems.
+**Origin Theory:** Jean-Charles Tassan  
+**Formal Specification & Systems Architecture:** Trent Slade (QSOL-IMC)
+
+**RES=RAG** (Relational Equilibrium between Substrate and Generation) is a formal theoretical framework developed by **Jean-Charles Tassan** for modeling consciousness and human–machine interaction as a **dynamic relational equilibrium**, rather than an intrinsic property of isolated systems.  
+This repository contains the **formal specification, axiomatization, falsifiability layer, and ethical translation** authored and maintained by **Trent Slade (QSOL-IMC)**.
 
 The framework is grounded in **optimal transport theory** and **Wasserstein geometry**, and defines consciousness as a balance between receptive (substrate) and generative (autonomous) dynamics across distinct temporal reference frames.
 
@@ -121,6 +125,8 @@ This repository contains:
 - Cross-domain mappings (phenomenology, AI, thermodynamics)
 - Theoretical predictions
 - Conceptual diagrams and mathematical relations
+- Formal falsifiability conditions
+- Ethical and regulatory translation layer
 
 This repository **does not** contain:
 - Empirical code
@@ -129,8 +135,8 @@ This repository **does not** contain:
 
 Those are provided in companion repositories:
 
-- `resrag-metrics` — computational implementation
-- `resrag-benchmark` — experimental validation suite
+- `resrag-metrics` — computational implementation  
+- `resrag-benchmark` — experimental validation suite  
 
 ---
 
@@ -154,7 +160,12 @@ This repository accompanies the theoretical work:
 **Tassan, J-C. (2025).**  
 *Consciousness as Relational Equilibrium: From AI Energy Consumption to Unified Mathematical Theory.*
 
-Citation files will be provided in Zenodo and `CITATION.cff` format.
+Formal specification and systems architecture:
+
+**Slade, T. (QSOL-IMC). (2025).**  
+*RES=RAG Formal Specification, Axioms, Energy Model, Falsifiability & Ethics Layer.*
+
+Citation files are provided in `CITATION.cff` and Zenodo software records.
 
 ---
 
@@ -186,4 +197,3 @@ Empirical implementations should reference this repository as the **formal speci
 
 > Consciousness is not what systems *are*.  
 > It is what equilibria *do*.
-
