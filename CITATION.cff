@@ -1,1 +1,58 @@
+cff-version: 1.2.0
+message: "If you use this framework, please cite it as below."
+title: "RES=RAG: Relational Equilibrium between Substrate and Generation"
+type: software
+version: 0.1.0-spec
+date-released: 2025-12-01
+
+authors:
+  - family-names: Tassan
+    given-names: Jean-Charles
+    affiliation: Independent Researcher
+    orcid: https://orcid.org/0009-0000-8566-0486
+
+  - family-names: Slade
+    given-names: Trent
+    affiliation: QSOL-IMC
+    orcid: https://orcid.org/0009-0002-4515-9237
+
+repository-code: https://github.com/QSOLKCB/res-rag
+
+abstract: >
+  RES=RAG (Relational Equilibrium between Substrate and Generation) is a formal
+  theoretical framework modeling consciousness and human–machine interaction
+  as a transport-governed relational equilibrium rather than an intrinsic
+  property of isolated systems. Grounded in optimal transport theory and
+  Wasserstein geometry, the framework defines three equilibrium axes (Human
+  internal, Machine internal, and Human–Machine resonance) and provides
+  structural, energetic, and ethical constraints for AI design, interaction
+  safety, and computational phenomenology.
+
+keywords:
+  - consciousness
+  - artificial intelligence
+  - optimal transport
+  - Wasserstein distance
+  - computational phenomenology
+  - human–machine interaction
+  - AI safety
+  - hallucination
+  - relational systems
+  - transport geometry
+
+license: CC-BY-4.0
+
+preferred-citation:
+  type: article
+  authors:
+    - family-names: Tassan
+      given-names: Jean-Charles
+      orcid: https://orcid.org/0009-0000-8566-0486
+    - family-names: Slade
+      given-names: Trent
+      orcid: https://orcid.org/0009-0002-4515-9237
+  title: "Consciousness as Relational Equilibrium: From AI Energy Consumption to a Unified Mathematical Theory"
+  year: 2025
+  journal: "Preprint / Zenodo"
+  url: https://zenodo.org/
 
