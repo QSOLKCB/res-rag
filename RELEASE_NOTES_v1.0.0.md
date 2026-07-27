@@ -79,7 +79,7 @@ latexmk -pdf -interaction=nonstopmode -halt-on-error \
   CSNP/Wasserstein synthesis.
 - **Bertrand D. J.-F. Thébault:** dialogical-time, `T_Real`, relational
   relativity, and CSNP synthesis.
-- **Manuel Martín Morales Plaza:** RES-RAG mathematical structure,
+- **Manuel Martín Morales Plaza:** RES=RAG mathematical structure,
   geometric-stability development, and CSNP-related formalization.
 - **Wilson John Sterking Lauret:** endogenous stability, governability, and
   accumulation/propagation dynamics.

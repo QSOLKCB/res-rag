@@ -8,6 +8,12 @@ specification.
 Jean-Charles J. C. Tassan confirmed on 27 July 2026 that the complete team
 should be included in the citation record.
 
+This file is the concise citation-team index. The canonical detailed
+contribution and provenance statements are maintained in
+[`paper/CONTRIBUTIONS.md`](paper/CONTRIBUTIONS.md), while
+[`CITATION.cff`](CITATION.cff) is the machine-readable author list. Changes to
+names or ordering must be synchronized across all three records.
+
 ## Citation team
 
 1. **Jean-Charles J. C. Tassan** — originating RES=RAG theory, relational
@@ -25,7 +31,7 @@ should be included in the citation record.
    CSNP/Wasserstein synthesis.
 4. **Bertrand D. J.-F. Thébault** — dialogical-time and `T_Real` lineage,
    relational relativity, and CSNP synthesis.
-5. **Manuel Martín Morales Plaza** — RES-RAG mathematical structure,
+5. **Manuel Martín Morales Plaza** — RES=RAG mathematical structure,
    geometric-stability development, and CSNP-related formalization.
 6. **Wilson John Sterking Lauret** — endogenous stability, governability,
    accumulation/propagation dynamics, and `D_c`/`D_r` lineage.
@@ -50,15 +56,12 @@ team members; their absence must not remove a person from the citation.
 - **Future empirical validation:** credit must be recorded in the relevant
   study and companion repository
 
-Detailed, source-bounded provenance is maintained in
-[`paper/CONTRIBUTIONS.md`](paper/CONTRIBUTIONS.md).
-
 ## Versioning & historical integrity
 
-This file establishes the authoritative team attribution record beginning with
+This file establishes the authoritative citation-team roster beginning with
 version 1.0.0. Future extensions, empirical contributions, and experimental
-implementations must preserve this historical record and add new contributors
-explicitly.
+implementations must preserve this historical record, update the canonical
+detailed provenance record, and add new contributors explicitly.
 
 ## Citation guidance
 

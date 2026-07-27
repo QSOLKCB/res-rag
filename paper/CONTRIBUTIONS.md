@@ -8,6 +8,11 @@ Jean-Charles J. C. Tassan reviewed the consolidated work and confirmed on
 27 July 2026 that all members of the team should be included in its citation.
 Accordingly, the version 1.0.0 citation contains nine authors.
 
+This file is the canonical detailed contribution and provenance record.
+`../AUTHORS.md` is its concise citation-team index, and `../CITATION.cff` is
+the machine-readable author list. Any change to a name, ordering, or role must
+be synchronized across those records.
+
 ## Complete citation team
 
 1. Jean-Charles J. C. Tassan
@@ -56,7 +61,7 @@ Accordingly, the version 1.0.0 citation contains nine authors.
 
 ### Manuel Martín Morales Plaza
 
-- Contributed to RES-RAG mathematical-structure and geometric-stability work.
+- Contributed to RES=RAG mathematical-structure and geometric-stability work.
 - Participated in CSNP-related and TCFQ-associated formal development in the
   antecedent research programme.
 
