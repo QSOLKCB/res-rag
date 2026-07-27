@@ -24,7 +24,10 @@
   citecolor=resblue,
   urlcolor=resblue,
   pdftitle={RES=RAG and the Coherent State Network Protocol},
-  pdfauthor={Jean-Charles J. C. Tassan and Trent Slade},
+  pdfauthor={Jean-Charles J. C. Tassan; Trent Slade; Mohamad Al-Zawahreh;
+    Bertrand D. J.-F. Thébault; Manuel Martín Morales Plaza;
+    Wilson John Sterking Lauret; Dominique Colin; Fatiha (Nisrine) Bouzid;
+    Timothy Sullivan},
   pdfsubject={Canonical formalization and deterministic reference profile v1.0.0},
   pdfkeywords={RES=RAG, CSNP, optimal transport, Wasserstein, human-machine systems}
 }
@@ -65,9 +68,18 @@
 }
 
 \author{
-  Jean-Charles J. C. Tassan\textsuperscript{1}
-  \and
-  Trent Slade\textsuperscript{2}\\[-2pt]
+  \small
+  \begin{tabular}{c}
+  Jean-Charles J. C. Tassan\textsuperscript{1} \quad
+  Trent Slade\textsuperscript{2} \quad
+  Mohamad Al-Zawahreh\\
+  Bertrand D. J.-F. Thébault \quad
+  Manuel Martín Morales Plaza\\
+  Wilson John Sterking Lauret \quad
+  Dominique Colin\\
+  Fatiha (Nisrine) Bouzid \quad
+  Timothy Sullivan
+  \end{tabular}\\[3pt]
   \small
   \textsuperscript{1}Independent researcher,
   \href{https://orcid.org/0009-0000-8566-0486}{ORCID 0009-0000-8566-0486}\\
@@ -108,11 +120,14 @@ excessive separation produces instability, fabrication, or loss of
 coordination.
 
 This paper consolidates the conceptual framework introduced by Jean-Charles
-Tassan with the optimal-transport, information-substrate,
-operational-variable, and systems-validation work developed with Trent Slade.
-It supplies a common state space, measurable quantities, explicit failure
-conditions, and a protocol boundary. The Coherent State Network Protocol
-(CSNP) turns the model into a cyclic
+Tassan; the computational formalization and systems-validation work developed
+by Trent Slade; and the CSNP, dialogical-time, mathematical-structure, and
+endogenous-stability lineages developed by Mohamad Al-Zawahreh, Bertrand D.
+J.-F. Thébault, Manuel Martín Morales Plaza, Wilson John Sterking Lauret,
+Dominique Colin, Fatiha (Nisrine) Bouzid, and Timothy Sullivan. It supplies a
+common state space, measurable quantities, explicit failure conditions, and a
+protocol boundary. The Coherent State Network Protocol (CSNP) turns the model
+into a cyclic
 observation-classification-intervention-receipt process. A deterministic
 reference profile, CSNP-RP 1.0.0, defines canonical JSON receipts, hash
 chaining, calibration declarations, evidence references, and replay rules.
@@ -134,6 +149,10 @@ framework and three-axis organization are due to Tassan. Subsequent joint
 work introduced an optimal-transport reading, a history-dependent
 informational substrate, dual operators, and interface-level observables
 \citep{tassan-slade-dialogical,slade-tassan-substrate,slade-tassan-uftid}.
+The dialogical-time, mathematical-structure, CSNP/Wasserstein, and
+endogenous-stability antecedents were developed across the wider team
+\citep{tassan-thebault-treal,resrag-tcfq,csnp-wasserstein,
+team-endogenous-stability}.
 The canonical repository then separated axioms, predictions, falsifiers, and
 ethical constraints \citep{resrag-repository}.
 
@@ -269,7 +288,9 @@ T_{\mathrm{Real}}(t)=\Wtwo(\mu_t^H,\mu_t^M).
 \end{definition}
 $T_{\mathrm{Real}}$ is a discrepancy between situated reference frames. It is
 not physical clock time. A conforming empirical study must declare the
-estimator, window, encoder, ground metric, and uncertainty.
+estimator, window, encoder, ground metric, and uncertainty. Its provenance
+includes the dialogical-time work of Tassan and Thébault
+\citep{tassan-thebault-treal}.
 
 \subsection{History-dependent information state}
 
@@ -360,14 +381,18 @@ D_r(t)=
 $D_r(t)>1$ predicts a loss of governability before semantic failure.
 \label{hyp:capacity}
 \end{hypothesis}
-This is a warning condition, not proof of irreversible failure.
+This is a warning condition, not proof of irreversible failure. Its
+accumulation/propagation and endogenous-governability lineage is attributed to
+the wider team \citep{team-endogenous-stability}.
 
 \section{Coherent State Network Protocol}
 
 In version 1.0.0, CSNP means \emph{Coherent State Network Protocol}. Earlier
 work used \emph{Client-Side Narrative Protocol} for a sovereign-memory
 implementation. The earlier term is preserved as an optional storage profile,
-not as the canonical expansion of the protocol name.
+not as the canonical expansion of the protocol name. This terminology history
+includes the work of Al-Zawahreh and the multi-author CSNP/Wasserstein
+synthesis \citep{csnp-wasserstein}.
 
 \subsection{Observed state}
 
@@ -625,17 +650,23 @@ its three-axis relational structure are attributed to Jean-Charles J. C.
 Tassan. The computational interpretation, optimal-transport architecture,
 history-dependent information model, operational variables, deterministic
 protocol profile, validation boundary, and release engineering are attributed
-to Trent Slade, developed in collaboration with Tassan.
+to Trent Slade, developed in collaboration with Tassan. The CSNP,
+dialogical-time, mathematical-structure, and endogenous-stability provenance is
+attributed to the complete team: Mohamad Al-Zawahreh, Bertrand D. J.-F.
+Thébault, Manuel Martín Morales Plaza, Wilson John Sterking Lauret, Dominique
+Colin, Fatiha (Nisrine) Bouzid, and Timothy Sullivan, together with Tassan and
+Slade \citep{csnp-wasserstein,tassan-thebault-treal,resrag-tcfq,
+team-endogenous-stability}.
 
-The repository contains the proposed CRediT-compatible statement. In summary:
-Tassan is proposed as lead for conceptualization and supervision, supporting
-methodology, and equal for original drafting and review; Slade is proposed as
-lead for methodology, formal analysis, software, validation, visualization,
-and project administration, supporting conceptualization, and equal for
-original drafting and review. CRediT describes contribution rather than
-determining authorship \citep{brand2022credit}. Both authors must approve the
-final author order, contribution statement, affiliations, and archival
-metadata before DOI deposit.
+Tassan reviewed the consolidated work and confirmed on 27 July 2026 that all
+members of the team should be included in its citation. The repository
+therefore records all nine names as version 1.0.0 authors. The accompanying
+provenance statement distinguishes theory origin, formalization and software,
+and antecedent research lineages without implying that every author wrote
+every line or implemented every artifact. CRediT describes contribution rather
+than determining authorship \citep{brand2022credit}; more granular CRediT
+roles, affiliations, and ORCID identifiers may be added when confirmed by the
+individual team members.
 
 \section*{Artifact availability}
 

@@ -30,11 +30,12 @@ node protocol/tools/verify_receipt.mjs \
 
 Before a DOI deposit:
 
-1. both authors approve the manuscript and `CONTRIBUTIONS.md`;
-2. affiliations, ORCIDs, author order, version, release date, and licenses are
-   confirmed;
-3. the PDF is rebuilt from the tagged source;
-4. the receipt example and tamper tests pass at the tag;
-5. repository and archival checksums are recorded; and
-6. a DOI is added to `CITATION.cff` only after it resolves.
-
+1. preserve the complete nine-person citation team recorded in
+   `CONTRIBUTIONS.md` and `../CITATION.cff`;
+2. add confirmed affiliations and ORCIDs without removing contributors whose
+   identifiers are unavailable;
+3. confirm author spelling and ordering, version, release date, and licenses;
+4. the PDF is rebuilt from the tagged source;
+5. the receipt example and tamper tests pass at the tag;
+6. repository and archival checksums are recorded; and
+7. a DOI is added to `CITATION.cff` only after it resolves.

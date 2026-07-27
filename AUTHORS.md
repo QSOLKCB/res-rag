@@ -1,72 +1,73 @@
 # Authors & Contributions
 
-This document records the formal authorship and contribution structure of the **RES=RAG (Relational Equilibrium between Substrate and Generation)** framework and its canonical specification.
+This document records the formal authorship and provenance of the **RES=RAG
+(Relational Equilibrium between Substrate and Generation)** framework, the
+Coherent State Network Protocol (CSNP), and the version 1.0.0 canonical
+specification.
 
----
+Jean-Charles J. C. Tassan confirmed on 27 July 2026 that the complete team
+should be included in the citation record.
 
-## Jean-Charles Tassan  
-**Origin Theorist — RES=RAG Core Framework**
+## Citation team
 
-- Originator of the RES=RAG theoretical model  
-- Formulation of relational equilibrium approach to consciousness  
-- Optimal transport interpretation of AI learning and energy dissipation  
-- Development of the four-dimensional dialogical consciousness structure  
-- Core philosophical and mathematical synthesis underlying the framework  
+1. **Jean-Charles J. C. Tassan** — originating RES=RAG theory, relational
+   equilibrium, three-axis architecture, conceptual direction, and
+   supervision.
+   Independent researcher ·
+   [ORCID 0009-0000-8566-0486](https://orcid.org/0009-0000-8566-0486)
+2. **Trent Slade** — computational formalization, optimal-transport and
+   information-substrate architecture, operational variables, CSNP-RP
+   engineering, verifier, validation boundary, repository integration, and
+   release engineering.
+   QSOL-IMC ·
+   [ORCID 0009-0002-4515-9237](https://orcid.org/0009-0002-4515-9237)
+3. **Mohamad Al-Zawahreh** — Client-Side Narrative Protocol lineage and
+   CSNP/Wasserstein synthesis.
+4. **Bertrand D. J.-F. Thébault** — dialogical-time and `T_Real` lineage,
+   relational relativity, and CSNP synthesis.
+5. **Manuel Martín Morales Plaza** — RES-RAG mathematical structure,
+   geometric-stability development, and CSNP-related formalization.
+6. **Wilson John Sterking Lauret** — endogenous stability, governability,
+   accumulation/propagation dynamics, and `D_c`/`D_r` lineage.
+7. **Dominique Colin** — granular-dynamics contribution to the interpretation
+   of constraint accumulation and propagation.
+8. **Fatiha (Nisrine) Bouzid** — broader endogenous-stability research
+   programme and interdisciplinary development.
+9. **Timothy Sullivan** — broader endogenous-stability research programme and
+   interdisciplinary development.
 
-Affiliation: Independent Researcher  
-ORCID: https://orcid.org/0009-0000-8566-0486  
+The names above form the complete version 1.0.0 citation team. Missing ORCID
+identifiers or affiliations should be added when supplied by the respective
+team members; their absence must not remove a person from the citation.
 
----
+## Contribution model
 
-## Trent Slade  
-**Formal Specification, Systems Architecture & Ethics Translation — QSOL-IMC**
+- **Theory origin:** Jean-Charles J. C. Tassan
+- **Formal specification, software, validation, and release integration:**
+  Trent Slade (QSOL-IMC)
+- **CSNP, dialogical-time, mathematical-structure, and endogenous-stability
+  lineage:** the complete team listed above
+- **Future empirical validation:** credit must be recorded in the relevant
+  study and companion repository
 
-- Formalization of the RES=RAG framework into a structured specification
-- Definition of:
-  - Primitives and operational terms
-  - Axiom layer
-  - Three-axis dynamical system (Axes I, II, III)
-  - Energy–transport thermodynamic model
-  - Quantum-like vs classical relational regimes
-  - Explicit falsifiability conditions
-- Translation of the framework into:
-  - Enforceable ethical design laws
-  - AI safety and regulatory control constraints
-- Systems architecture of the canonical RES=RAG specification repository
-- Scientific infrastructure design enabling:
-  - Empirical testing
-  - Benchmarking
-  - Software implementation
-- Repository maintenance and release engineering
+Detailed, source-bounded provenance is maintained in
+[`paper/CONTRIBUTIONS.md`](paper/CONTRIBUTIONS.md).
 
-Affiliation: QSOL-IMC  
-ORCID: https://orcid.org/0009-0002-4515-9237  
+## Versioning & historical integrity
 
----
+This file establishes the authoritative team attribution record beginning with
+version 1.0.0. Future extensions, empirical contributions, and experimental
+implementations must preserve this historical record and add new contributors
+explicitly.
 
-## Contribution Model
+## Citation guidance
 
-- **Theory Origin:** Jean-Charles Tassan  
-- **Formal Specification & Systems Engineering:** Trent Slade (QSOL-IMC)  
-- **Future Empirical Validation:** To be credited in companion repositories  
-  (`resrag-metrics`, `resrag-benchmark`)
+The machine-readable and archival citation records are:
 
----
+- [`CITATION.cff`](CITATION.cff)
+- [`paper/CONTRIBUTIONS.md`](paper/CONTRIBUTIONS.md)
+- the final Zenodo record after the corrected release snapshot is archived
 
-## Versioning & Historical Integrity
-
-This file establishes the **authoritative attribution record** for all versions beginning with:
-
-
-Any future extensions, empirical contributions, or experimental implementations must be credited explicitly in this document or in companion repository author lists.
-
----
-
-## Citation Guidance
-
-Formal citation details are provided in:
-
-- `CITATION.cff`
-- Zenodo software DOI records
-
-Users of the framework in academic, technical, or regulatory contexts must cite both the **origin theory** and the **formal specification layer** where applicable.
+Users should cite the complete team for the version 1.0.0 consolidated
+formalization and separately cite the antecedent works on which a particular
+implementation relies.

@@ -16,6 +16,27 @@ authors:
     affiliation: QSOL-IMC
     orcid: https://orcid.org/0009-0002-4515-9237
 
+  - family-names: Al-Zawahreh
+    given-names: Mohamad
+
+  - family-names: Thébault
+    given-names: Bertrand D. J.-F.
+
+  - family-names: Morales Plaza
+    given-names: Manuel Martín
+
+  - family-names: Lauret
+    given-names: Wilson John Sterking
+
+  - family-names: Colin
+    given-names: Dominique
+
+  - family-names: Bouzid
+    given-names: Fatiha (Nisrine)
+
+  - family-names: Sullivan
+    given-names: Timothy
+
 repository-code: https://github.com/QSOLKCB/res-rag
 
 abstract: >
@@ -48,8 +69,21 @@ preferred-citation:
     - family-names: Slade
       given-names: Trent
       orcid: https://orcid.org/0009-0002-4515-9237
+    - family-names: Al-Zawahreh
+      given-names: Mohamad
+    - family-names: Thébault
+      given-names: Bertrand D. J.-F.
+    - family-names: Morales Plaza
+      given-names: Manuel Martín
+    - family-names: Lauret
+      given-names: Wilson John Sterking
+    - family-names: Colin
+      given-names: Dominique
+    - family-names: Bouzid
+      given-names: Fatiha (Nisrine)
+    - family-names: Sullivan
+      given-names: Timothy
   title: "RES=RAG and the Coherent State Network Protocol: A Formal Architecture for Endogenous Stability in Human-Machine Systems"
   year: 2026
   journal: "Version 1.0.0 preprint"
   url: https://github.com/QSOLKCB/res-rag
-

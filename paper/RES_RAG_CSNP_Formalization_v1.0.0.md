@@ -12,6 +12,13 @@ ORCID: [0009-0000-8566-0486](https://orcid.org/0009-0000-8566-0486)
 QSOL-IMC  
 ORCID: [0009-0002-4515-9237](https://orcid.org/0009-0002-4515-9237)
 
+**Mohamad Al-Zawahreh · Bertrand D. J.-F. Thébault · Manuel Martín Morales
+Plaza · Wilson John Sterking Lauret · Dominique Colin · Fatiha (Nisrine)
+Bouzid · Timothy Sullivan**
+
+Complete version 1.0.0 citation team; detailed provenance is recorded in
+[`CONTRIBUTIONS.md`](CONTRIBUTIONS.md).
+
 **Status:** Formal specification and testable research programme. This document does
 not report a completed empirical validation, prove machine consciousness, or claim
 that human-machine interaction is a physical quantum system.
@@ -29,13 +36,16 @@ little separation produces rigidity, while excessive separation produces
 instability, fabrication, or loss of coordination.
 
 This paper consolidates the conceptual framework introduced by Jean-Charles
-Tassan with the optimal-transport, information-substrate, operational-variable,
-and systems-validation work developed with Trent Slade. It supplies a common
-state space, measurable quantities, explicit failure conditions, and a protocol
-boundary. The Coherent State Network Protocol (CSNP) turns the model into a
-cyclic observation-classification-intervention-receipt process. A deterministic
-reference profile, CSNP-RP 1.0.0, defines canonical JSON receipts, hash chaining,
-calibration declarations, evidence references, and replay rules.
+Tassan; the computational formalization and systems-validation work developed
+by Trent Slade; and the CSNP, dialogical-time, mathematical-structure, and
+endogenous-stability lineages developed by Mohamad Al-Zawahreh, Bertrand D.
+J.-F. Thébault, Manuel Martín Morales Plaza, Wilson John Sterking Lauret,
+Dominique Colin, Fatiha (Nisrine) Bouzid, and Timothy Sullivan. It supplies a
+common state space, measurable quantities, explicit failure conditions, and a
+protocol boundary. The Coherent State Network Protocol (CSNP) turns the model
+into a cyclic observation-classification-intervention-receipt process. A
+deterministic reference profile, CSNP-RP 1.0.0, defines canonical JSON receipts,
+hash chaining, calibration declarations, evidence references, and replay rules.
 
 The result is deliberately modest in epistemic scope. RES=RAG is presented as a
 falsifiable architecture for studying regulated dialogue and distributed
@@ -57,6 +67,13 @@ The formalization has four goals:
 Only contributions directly connected to RES=RAG are included. Broader
 field-theoretic claims, unrelated software projects, and external frameworks are
 outside scope.
+
+The provenance includes the team’s dialogical-time, mathematical-structure,
+CSNP/Wasserstein, and endogenous-stability antecedents:
+[Tassan–Thébault `T_Real`](https://doi.org/10.5281/zenodo.17744873),
+[RES–RAG TCFQ mathematical structure](https://doi.org/10.5281/zenodo.18022363),
+[CSNP/Wasserstein synthesis](https://doi.org/10.5281/zenodo.18051806), and
+[*Beyond Generative AI: The Science of Endogenous Stability*](https://doi.org/10.5281/zenodo.18617384).
 
 ### 1.1 Epistemic labels
 
@@ -438,9 +455,20 @@ The conceptual origin of RES=RAG is attributed to Jean-Charles Tassan. The
 formal specification, optimal-transport architecture, information-substrate
 model, operational variables, deterministic protocol profile, validation
 boundary, and release engineering are attributed to Trent Slade, developed in
-collaboration with Tassan. A proposed CRediT record is maintained in
-[`CONTRIBUTIONS.md`](CONTRIBUTIONS.md). Both authors must approve the final
-author order, contribution statement, and archival metadata before DOI deposit.
+collaboration with Tassan.
+
+The CSNP, dialogical-time, mathematical-structure, and endogenous-stability
+provenance is attributed to the complete nine-person citation team:
+Jean-Charles J. C. Tassan, Trent Slade, Mohamad Al-Zawahreh, Bertrand D. J.-F.
+Thébault, Manuel Martín Morales Plaza, Wilson John Sterking Lauret, Dominique
+Colin, Fatiha (Nisrine) Bouzid, and Timothy Sullivan.
+
+Tassan reviewed the consolidated work and confirmed on 27 July 2026 that all
+members of the team should be included in its citation. The source-bounded
+contribution record is maintained in
+[`CONTRIBUTIONS.md`](CONTRIBUTIONS.md). More granular affiliations, ORCID
+identifiers, and CRediT roles may be added when confirmed by the respective
+team members without removing any name from the citation.
 
 ## References
 
@@ -454,5 +482,23 @@ The LaTeX edition contains the normative bibliography in
 - Slade, T., and Tassan, J.-C. *Unified Field of Information Dynamics
   (UFT-ID): A Field-Theoretic Extension of RES = RAG and CBD.* Zenodo,
   DOI: [10.5281/zenodo.18313226](https://doi.org/10.5281/zenodo.18313226),
+  2026.
+- Al-Zawahreh, M., Tassan, J.-C., Slade, T., Thébault, B. D. J.-F., and
+  Morales Plaza, M. M. *Cohérence relationnelle en mémoire distribuée : Le
+  CSNP comme protocole de conscience optimal au sens de Wasserstein.* Zenodo,
+  DOI: [10.5281/zenodo.18051806](https://doi.org/10.5281/zenodo.18051806),
+  2026.
+- Tassan, J.-C., and Thébault, B. D. J.-F. *T_Real of Thébault and Tassan’s
+  RES = RAG: Unified Physics and Philosophy of Time.* Zenodo,
+  DOI: [10.5281/zenodo.17744873](https://doi.org/10.5281/zenodo.17744873),
+  2025.
+- Tassan, J.-C., Slade, T., Morales Plaza, M. M., and Thébault, B. D. J.-F.
+  *RES_RAG_TCFQ: Structure Mathématique.* Zenodo,
+  DOI: [10.5281/zenodo.18022363](https://doi.org/10.5281/zenodo.18022363),
+  2025.
+- Lauret, W. J. S., Tassan, J.-C., Al-Zawahreh, M., Thébault, B. D. J.-F.,
+  Sullivan, T., Morales Plaza, M. M., Slade, T., Bouzid, F. (N.), and Colin,
+  D. *Beyond Generative AI: The Science of Endogenous Stability.* Zenodo,
+  DOI: [10.5281/zenodo.18617384](https://doi.org/10.5281/zenodo.18617384),
   2026.
 - Villani, C. *Optimal Transport: Old and New.* Springer, 2009.

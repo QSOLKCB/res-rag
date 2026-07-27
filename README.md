@@ -4,7 +4,13 @@
 **Formal Specification & Systems Architecture:** Trent Slade (QSOL-IMC)
 
 **RES=RAG** (Relational Equilibrium between Substrate and Generation) is a formal theoretical framework developed by **Jean-Charles Tassan** for modeling consciousness and human–machine interaction as a **dynamic relational equilibrium**, rather than an intrinsic property of isolated systems.  
-This repository contains the **formal specification, axiomatization, falsifiability layer, and ethical translation** authored and maintained by **Trent Slade (QSOL-IMC)**.
+This repository contains the **formal specification, axiomatization, falsifiability layer, and ethical translation** consolidated and maintained by **Trent Slade (QSOL-IMC)**, with the CSNP, dialogical-time, mathematical-structure, and endogenous-stability provenance of the complete collaborative team.
+
+**Version 1.0.0 citation team:** Jean-Charles J. C. Tassan; Trent Slade;
+Mohamad Al-Zawahreh; Bertrand D. J.-F. Thébault; Manuel Martín Morales Plaza;
+Wilson John Sterking Lauret; Dominique Colin; Fatiha (Nisrine) Bouzid; and
+Timothy Sullivan. See [`AUTHORS.md`](AUTHORS.md) and the
+[contribution record](paper/CONTRIBUTIONS.md).
 
 The framework is grounded in **optimal transport theory** and **Wasserstein geometry**, and defines consciousness as a balance between receptive (substrate) and generative (autonomous) dynamics across distinct temporal reference frames.
 
@@ -155,17 +161,14 @@ Its unique contribution is treating **consciousness as a transport-regulated rel
 
 ## 8. Citation Status
 
-This repository accompanies the theoretical work:
+The consolidated version 1.0.0 citation includes all nine members of the team:
+Jean-Charles J. C. Tassan; Trent Slade; Mohamad Al-Zawahreh; Bertrand D.
+J.-F. Thébault; Manuel Martín Morales Plaza; Wilson John Sterking Lauret;
+Dominique Colin; Fatiha (Nisrine) Bouzid; and Timothy Sullivan.
 
-**Tassan, J-C. (2025).**  
-*Consciousness as Relational Equilibrium: From AI Energy Consumption to Unified Mathematical Theory.*
-
-Formal specification and systems architecture:
-
-**Slade, T. (QSOL-IMC). (2025).**  
-*RES=RAG Formal Specification, Axioms, Energy Model, Falsifiability & Ethics Layer.*
-
-Citation files are provided in `CITATION.cff` and Zenodo software records.
+Use [`CITATION.cff`](CITATION.cff) for machine-readable metadata and
+[`AUTHORS.md`](AUTHORS.md) for the human-readable provenance record. Antecedent
+works remain separately cited in the manuscript bibliography.
 
 ---
 
@@ -192,6 +195,7 @@ Coherent State Network Protocol reference profile.
 - [LaTeX source](paper/RES_RAG_CSNP_Formalization_v1.0.0.tex)
 - [CSNP-RP 1.0.0](protocol/CSNP-RP_v1.0.0.md)
 - [Receipt JSON Schema](protocol/csnp-rp-v1.0.0.schema.json)
+- [Authors and citation team](AUTHORS.md)
 - [Contribution and provenance record](paper/CONTRIBUTIONS.md)
 
 The paper treats performance values as hypotheses or reported targets until
