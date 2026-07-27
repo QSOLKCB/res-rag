@@ -181,7 +181,31 @@ It reframes consciousness research from a **detection problem** to a **cultivati
 
 ---
 
-## 10. License & Collaboration
+## 10. Formalization and CSNP v1.0.0
+
+Version 1.0.0 adds a publication-ready formalization and the deterministic
+Coherent State Network Protocol reference profile.
+
+- [Release notes](RELEASE_NOTES_v1.0.0.md)
+- [Formal paper (PDF)](paper/RES_RAG_CSNP_Formalization_v1.0.0.pdf)
+- [Formal paper (Markdown)](paper/RES_RAG_CSNP_Formalization_v1.0.0.md)
+- [LaTeX source](paper/RES_RAG_CSNP_Formalization_v1.0.0.tex)
+- [CSNP-RP 1.0.0](protocol/CSNP-RP_v1.0.0.md)
+- [Receipt JSON Schema](protocol/csnp-rp-v1.0.0.schema.json)
+- [Contribution and provenance record](paper/CONTRIBUTIONS.md)
+
+The paper treats performance values as hypotheses or reported targets until
+they are independently validated. Thresholds are calibration parameters, and
+the protocol does not claim to prove machine consciousness or physical quantum
+effects.
+
+---
+
+## 11. License & Collaboration
+
+This repository is licensed under the [Creative Commons Attribution 4.0
+International license](https://creativecommons.org/licenses/by/4.0/)
+(`CC-BY-4.0`). See [`LICENSE`](LICENSE).
 
 This repository is intended for:
 

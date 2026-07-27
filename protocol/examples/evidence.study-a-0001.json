@@ -1,0 +1,6 @@
+{
+  "description": "Synthetic observation used only to verify CSNP-RP serialization.",
+  "source": "RES=RAG CSNP-RP 1.0.0 repository example",
+  "synthetic": true
+}
+

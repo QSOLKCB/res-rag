@@ -1,0 +1,264 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/QSOLKCB/res-rag/blob/main/protocol/csnp-rp-v1.0.0.schema.json",
+  "title": "Coherent State Network Protocol Reference Profile 1.0.0",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "protocol",
+    "version",
+    "observation_id",
+    "observed_at",
+    "previous_receipt_hash",
+    "metric_profile",
+    "measurements",
+    "classification",
+    "intervention",
+    "evidence",
+    "state_hash",
+    "hash_algorithm",
+    "canonicalization",
+    "receipt_hash"
+  ],
+  "properties": {
+    "protocol": {
+      "const": "CSNP-RP"
+    },
+    "version": {
+      "const": "1.0.0"
+    },
+    "observation_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,127}$"
+    },
+    "observed_at": {
+      "type": "string",
+      "format": "date-time",
+      "pattern": "Z$"
+    },
+    "previous_receipt_hash": {
+      "oneOf": [
+        {
+          "type": "null"
+        },
+        {
+          "$ref": "#/$defs/sha256"
+        }
+      ]
+    },
+    "metric_profile": {
+      "$ref": "#/$defs/metricProfile"
+    },
+    "measurements": {
+      "$ref": "#/$defs/measurements"
+    },
+    "classification": {
+      "enum": [
+        "governable",
+        "critical",
+        "irreversible",
+        "indeterminate"
+      ]
+    },
+    "intervention": {
+      "$ref": "#/$defs/intervention"
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/evidence"
+      }
+    },
+    "state_hash": {
+      "$ref": "#/$defs/sha256"
+    },
+    "hash_algorithm": {
+      "const": "sha256"
+    },
+    "canonicalization": {
+      "const": "JCS-RFC8785"
+    },
+    "receipt_hash": {
+      "$ref": "#/$defs/sha256"
+    }
+  },
+  "$defs": {
+    "sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "nullableUnitInterval": {
+      "oneOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        }
+      ]
+    },
+    "nullableNonNegative": {
+      "oneOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "number",
+          "minimum": 0
+        }
+      ]
+    },
+    "intervention": {
+      "enum": [
+        "none",
+        "slowdown",
+        "diversify",
+        "retrieve",
+        "clarify",
+        "human_handoff",
+        "stop"
+      ]
+    },
+    "metricProfile": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "profile_id",
+        "profile_version",
+        "state_representation",
+        "ground_metric",
+        "distance_unit",
+        "time_unit",
+        "epsilon_min",
+        "epsilon_max",
+        "memory_warning",
+        "organizational_warning",
+        "anchoring_min",
+        "irreversibility_horizon",
+        "intervention_set"
+      ],
+      "properties": {
+        "profile_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        },
+        "profile_version": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64
+        },
+        "state_representation": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 256
+        },
+        "ground_metric": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        },
+        "distance_unit": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64
+        },
+        "time_unit": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64
+        },
+        "epsilon_min": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "epsilon_max": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "memory_warning": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "organizational_warning": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "anchoring_min": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "irreversibility_horizon": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "intervention_set": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/intervention"
+          }
+        }
+      }
+    },
+    "measurements": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "delta_t",
+        "dc",
+        "dr",
+        "memory_saturation",
+        "w2_res_rag",
+        "organizational_incoherence",
+        "anchoring"
+      ],
+      "properties": {
+        "delta_t": {
+          "$ref": "#/$defs/nullableNonNegative"
+        },
+        "dc": {
+          "$ref": "#/$defs/nullableUnitInterval"
+        },
+        "dr": {
+          "$ref": "#/$defs/nullableNonNegative"
+        },
+        "memory_saturation": {
+          "$ref": "#/$defs/nullableUnitInterval"
+        },
+        "w2_res_rag": {
+          "$ref": "#/$defs/nullableNonNegative"
+        },
+        "organizational_incoherence": {
+          "$ref": "#/$defs/nullableUnitInterval"
+        },
+        "anchoring": {
+          "$ref": "#/$defs/nullableUnitInterval"
+        }
+      }
+    },
+    "evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "uri",
+        "sha256"
+      ],
+      "properties": {
+        "uri": {
+          "type": "string",
+          "format": "uri"
+        },
+        "sha256": {
+          "$ref": "#/$defs/sha256"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "protocol": "CSNP-RP",
+  "version": "1.0.0",
+  "observation_id": "study-a-0001",
+  "observed_at": "2026-07-27T00:00:00Z",
+  "previous_receipt_hash": null,
+  "metric_profile": {
+    "profile_id": "res-rag-reference",
+    "profile_version": "1.0.0",
+    "state_representation": "example-semantic-encoder-v1",
+    "ground_metric": "euclidean",
+    "distance_unit": "embedding-distance",
+    "time_unit": "second",
+    "epsilon_min": 0.2,
+    "epsilon_max": 0.6,
+    "memory_warning": 0.8,
+    "organizational_warning": 0.7,
+    "anchoring_min": 0.5,
+    "irreversibility_horizon": 3,
+    "intervention_set": [
+      "slowdown",
+      "diversify",
+      "retrieve",
+      "clarify",
+      "human_handoff",
+      "stop"
+    ]
+  },
+  "measurements": {
+    "delta_t": 0.31,
+    "dc": 0.42,
+    "dr": 0.73,
+    "memory_saturation": 0.34,
+    "w2_res_rag": 0.4,
+    "organizational_incoherence": 0.21,
+    "anchoring": 0.9
+  },
+  "classification": "governable",
+  "intervention": "none",
+  "evidence": [
+    {
+      "uri": "urn:sha256:90f564fff9bf2b05db72e97129b83e391f67d1a8209ce94c78c8527d3cdefa95",
+      "sha256": "90f564fff9bf2b05db72e97129b83e391f67d1a8209ce94c78c8527d3cdefa95"
+    }
+  ],
+  "state_hash": "77ae42feb47ff537729b5f09c080c42fa93315b931317375974534e1578b7043",
+  "hash_algorithm": "sha256",
+  "canonicalization": "JCS-RFC8785",
+  "receipt_hash": "e2cbeb07e0553eb9bc0d07eecf4cbe10be2357e102672547b53de7b752c4aee2"
+}
