@@ -12,8 +12,9 @@ operational boundary.
 - Formalizes `T_Real` as an operational human-machine reference discrepancy.
 - Reconciles the three axes with functional Mode A and Mode B interpretation
   constraints.
-- Incorporates the directly relevant information-substrate and interface-level
-  contributions developed by Jean-Charles Tassan and Trent Slade.
+- Incorporates the directly relevant information-substrate, dialogical-time,
+  mathematical-structure, CSNP, endogenous-stability, and interface-level
+  contributions of the complete nine-person citation team.
 - Establishes **Coherent State Network Protocol** as the canonical CSNP
   expansion; the earlier **Client-Side Narrative Protocol** becomes an optional
   sovereign-memory implementation profile.
@@ -22,7 +23,8 @@ operational boundary.
 - Adds CSNP-RP 1.0.0: a deterministic, hash-chained JSON receipt profile with a
   schema, RFC 8785 canonicalization, synthetic example, strict verifier, chain
   tests, structural tests, and tamper tests.
-- Adds a proposed CRediT-compatible authorship and provenance record.
+- Adds the full team authorship and source-bounded provenance record confirmed
+  by Jean-Charles J. C. Tassan on 27 July 2026.
 - Supplies LaTeX, PDF, and GitHub-readable Markdown editions of the paper.
 
 ## Scientific-status clarification
@@ -73,9 +75,25 @@ latexmk -pdf -interaction=nonstopmode -halt-on-error \
 - **Trent Slade:** computational formalization, optimal-transport and
   information-substrate architecture, operational variables, protocol
   engineering, verifier, validation boundary, and release integration.
+- **Mohamad Al-Zawahreh:** Client-Side Narrative Protocol lineage and
+  CSNP/Wasserstein synthesis.
+- **Bertrand D. J.-F. Thébault:** dialogical-time, `T_Real`, relational
+  relativity, and CSNP synthesis.
+- **Manuel Martín Morales Plaza:** RES=RAG mathematical structure,
+  geometric-stability development, and CSNP-related formalization.
+- **Wilson John Sterking Lauret:** endogenous stability, governability, and
+  accumulation/propagation dynamics.
+- **Dominique Colin:** granular-dynamics contribution to constraint
+  accumulation and propagation.
+- **Fatiha (Nisrine) Bouzid:** broader endogenous-stability research programme
+  and interdisciplinary development.
+- **Timothy Sullivan:** broader endogenous-stability research programme and
+  interdisciplinary development.
 
-The detailed contribution record remains subject to approval by both authors
-before DOI deposit.
+All nine names are included in `CITATION.cff`, the manuscript, PDF metadata,
+`AUTHORS.md`, and the detailed contribution record. Additional ORCID
+identifiers and affiliations can be added when confirmed without removing any
+member from the citation.
 
 ## License
 
