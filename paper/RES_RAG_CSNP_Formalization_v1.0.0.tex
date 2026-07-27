@@ -90,6 +90,12 @@
     claim that human-machine interaction is a physical quantum system.
   }
 }
+\smallskip
+
+\small
+\textbf{License:}
+\href{https://creativecommons.org/licenses/by/4.0/}
+{Creative Commons Attribution 4.0 International (CC BY 4.0)}
 \end{center}
 
 \begin{abstract}
@@ -213,7 +219,7 @@ w_t=\Wtwo\!\left(\mu_t^{\RES},\mu_t^{\RAG}\right).
 \begin{definition}[RES=RAG equilibrium]
 For calibration profile
 $\theta=(\varepsilon_{\min},\varepsilon_{\max},\ldots)$, where
-$0\leq\varepsilon_{\min}<\varepsilon_{\max}$, the stable set is
+$0<\varepsilon_{\min}<\varepsilon_{\max}$, the stable set is
 \begin{equation}
 \Eband=
 \left\{
@@ -466,12 +472,14 @@ receipt digest.
 
 \subsection{Canonicalization}
 
-The repository-defined \code{RES-RAG-C14N-1} procedure:
+The JSON Canonicalization Scheme defined by RFC 8785 \citep{rfc8785}:
 \begin{enumerate}
-  \item recursively sorts object keys by Unicode code point;
+  \item sorts object keys lexicographically by UTF-16 code unit;
   \item preserves array order;
-  \item serializes UTF-8 JSON without insignificant whitespace;
-  \item permits only finite JSON numbers and rejects negative zero; and
+  \item serializes strings as well-formed UTF-8 JSON without insignificant
+        whitespace;
+  \item serializes finite numbers with the exact ECMAScript representation
+        required by JCS; and
   \item preserves JSON boolean and null literals.
 \end{enumerate}
 
@@ -516,8 +524,8 @@ A complete replay parses the receipt with strict duplicate-key and number
 handling, validates its schema, recomputes both digests, verifies the chain and
 evidence hashes, loads the exact metric profile, reruns the classifier, and
 records any disagreement. The bundled dependency-free verifier performs
-structural, hash, and predecessor-link checks. Evidence retrieval and full JSON
-Schema validation remain integration responsibilities.
+strict JSON parsing, structural, hash, and predecessor-link checks. Evidence
+retrieval and full JSON Schema validation remain integration responsibilities.
 
 \section{Safety constraints}
 
@@ -673,13 +681,5 @@ repository:
 \end{tabularx}
 \caption{Version 1.0.0 artifact set.}
 \end{table}
-
-\section{Implementation note}
-
-The canonicalization profile is intentionally small enough for independent
-implementation. It is not a substitute for a general-purpose canonical JSON
-standard. Cross-language deployments should first test a shared corpus of
-strings, integer and fixed-precision values, arrays, and nested objects.
-Changing numeric semantics or key ordering requires a new CSNP-RP version.
 
 \end{document}

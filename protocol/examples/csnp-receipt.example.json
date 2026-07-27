@@ -45,6 +45,6 @@
   ],
   "state_hash": "77ae42feb47ff537729b5f09c080c42fa93315b931317375974534e1578b7043",
   "hash_algorithm": "sha256",
-  "canonicalization": "RES-RAG-C14N-1",
-  "receipt_hash": "88c06e50ecfe38394942d1721aa70971f96bc438013bccfcced543cb768bdc7c"
+  "canonicalization": "JCS-RFC8785",
+  "receipt_hash": "e2cbeb07e0553eb9bc0d07eecf4cbe10be2357e102672547b53de7b752c4aee2"
 }

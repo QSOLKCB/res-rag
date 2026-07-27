@@ -20,7 +20,8 @@ operational boundary.
 - Adds CSNP state variables, classification semantics, a finite intervention
   vocabulary, replay rules, and explicit falsifiers.
 - Adds CSNP-RP 1.0.0: a deterministic, hash-chained JSON receipt profile with a
-  schema, synthetic example, verifier, and tamper tests.
+  schema, RFC 8785 canonicalization, synthetic example, strict verifier, chain
+  tests, structural tests, and tamper tests.
 - Adds a proposed CRediT-compatible authorship and provenance record.
 - Supplies LaTeX, PDF, and GitHub-readable Markdown editions of the paper.
 
@@ -76,3 +77,7 @@ latexmk -pdf -interaction=nonstopmode -halt-on-error \
 The detailed contribution record remains subject to approval by both authors
 before DOI deposit.
 
+## License
+
+This repository is licensed under the Creative Commons Attribution 4.0
+International license (`CC-BY-4.0`).

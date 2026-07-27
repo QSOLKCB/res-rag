@@ -203,6 +203,10 @@ effects.
 
 ## 11. License & Collaboration
 
+This repository is licensed under the [Creative Commons Attribution 4.0
+International license](https://creativecommons.org/licenses/by/4.0/)
+(`CC-BY-4.0`). See [`LICENSE`](LICENSE).
+
 This repository is intended for:
 
 - Open theoretical analysis

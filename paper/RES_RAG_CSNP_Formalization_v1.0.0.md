@@ -16,6 +16,9 @@ ORCID: [0009-0002-4515-9237](https://orcid.org/0009-0002-4515-9237)
 not report a completed empirical validation, prove machine consciousness, or claim
 that human-machine interaction is a physical quantum system.
 
+**License:** [Creative Commons Attribution 4.0 International](https://creativecommons.org/licenses/by/4.0/)
+(`CC-BY-4.0`).
+
 ## Abstract
 
 RES=RAG models stable intelligence as a regulated tension between receptive,
@@ -110,7 +113,7 @@ w_t = W_2\!\left(\mu_t^{\mathrm{RES}},
 
 For a declared calibration profile
 \(\theta=(\varepsilon_{\min},\varepsilon_{\max},\ldots)\), with
-\(0\leq\varepsilon_{\min}<\varepsilon_{\max}\), define the stable band
+\(0<\varepsilon_{\min}<\varepsilon_{\max}\), define the stable band
 
 \[
 \mathcal E_\theta
@@ -348,16 +351,16 @@ contains:
 - a state digest; and
 - a receipt digest.
 
-Canonicalization uses the repository-defined `RES-RAG-C14N-1` procedure:
-recursively sort object keys by Unicode code point; preserve array order; encode
-UTF-8 JSON without insignificant whitespace; use JSON literals for booleans and
-null; and reject non-finite numbers. The state digest is SHA-256 over the
-canonical state projection. The receipt digest is SHA-256 over the canonical
-receipt with `receipt_hash` omitted.
+Canonicalization uses the JSON Canonicalization Scheme in RFC 8785
+(`JCS-RFC8785`). It fixes key ordering, string escaping, UTF-8 encoding, and
+finite-number serialization across conforming implementations. The state digest
+is SHA-256 over the canonical state projection. The receipt digest is SHA-256
+over the canonical receipt with `receipt_hash` omitted.
 
-The repository includes a dependency-free verifier, a conforming example, and a
-tamper test. A valid receipt proves byte-level integrity and rule provenance; it
-does not prove that a sensor, embedding model, or human report was truthful.
+The repository includes a dependency-free strict JSON verifier, a conforming
+example, chain tests, structural tests, and tamper tests. A valid receipt proves
+byte-level integrity and rule provenance; it does not prove that a sensor,
+embedding model, or human report was truthful.
 
 ## 7. Safety constraints
 
@@ -453,4 +456,3 @@ The LaTeX edition contains the normative bibliography in
   DOI: [10.5281/zenodo.18313226](https://doi.org/10.5281/zenodo.18313226),
   2026.
 - Villani, C. *Optimal Transport: Old and New.* Springer, 2009.
-

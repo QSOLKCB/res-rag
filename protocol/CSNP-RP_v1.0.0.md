@@ -52,7 +52,7 @@ A conforming implementation:
 | `evidence` | Immutable content references with SHA-256 digests. |
 | `state_hash` | Digest of the canonical state projection. |
 | `hash_algorithm` | Constant `sha256`. |
-| `canonicalization` | Constant `RES-RAG-C14N-1`. |
+| `canonicalization` | Constant `JCS-RFC8785`. |
 | `receipt_hash` | Digest of the receipt with this field omitted. |
 
 ## 4. Measurement semantics
@@ -83,20 +83,21 @@ ground metric. Thresholds are local calibration values:
 
 ## 5. Canonicalization and hashes
 
-`RES-RAG-C14N-1` is a deliberately small canonical JSON profile:
+Canonicalization uses the JSON Canonicalization Scheme (JCS) defined by
+[RFC 8785](https://www.rfc-editor.org/rfc/rfc8785):
 
-1. objects are serialized with keys sorted by Unicode code point;
+1. object keys are sorted lexicographically by their UTF-16 code units;
 2. arrays retain their declared order;
-3. strings use JSON escaping and UTF-8 encoding;
-4. numbers MUST be finite JSON numbers and MUST NOT use `NaN`, `Infinity`, or
-   negative zero;
-5. booleans and null use the JSON literals;
+3. strings use the JSON escaping and UTF-8 rules specified by JCS, and lone
+   Unicode surrogates are rejected;
+4. finite numbers use the ECMAScript serialization required by JCS, including
+   its exact exponent and shortest-round-trip representation;
+5. `NaN` and infinities are rejected; and
 6. no insignificant whitespace is emitted.
 
-Implementations SHOULD exchange integers or fixed-precision decimal values that
-round-trip across their supported JSON implementations. For cross-language
-profiles requiring broader numeric semantics, a later CSNP-RP version may adopt
-an external canonicalization standard.
+Receipts identify this requirement with `canonicalization: "JCS-RFC8785"`.
+Implementations MUST pass shared RFC 8785 conformance vectors before exchanging
+hash-chained receipts across languages.
 
 ### 5.1 State hash
 
@@ -130,7 +131,7 @@ For receipt \(R_t\), `previous_receipt_hash` MUST equal the verified
 For complete measurements, a receipt may be `governable` only if:
 
 ```text
-epsilon_min <= w2_res_rag <= epsilon_max
+0 < epsilon_min <= w2_res_rag <= epsilon_max
 dr <= 1
 memory_saturation < memory_warning
 organizational_incoherence < organizational_warning
@@ -162,8 +163,10 @@ A verifier:
 8. loads the exact metric profile version; and
 9. reproduces the classifier and records any disagreement.
 
-The bundled verifier performs steps 2-5 and supports predecessor-link checking.
-JSON Schema validation and evidence retrieval remain integration responsibilities.
+The bundled CLI verifier performs steps 1-6, including strict duplicate-key
+rejection and predecessor-link checking. The exported object-level verifier
+performs steps 2-6 on an already parsed object. JSON Schema validation and
+evidence retrieval remain integration responsibilities.
 
 ## 8. Security and privacy
 
@@ -182,4 +185,3 @@ Changes to required fields, canonicalization, hash projections, classification
 semantics, or measurement meaning require a new protocol version. Threshold-only
 changes require a new `metric_profile.profile_version` and do not change the
 CSNP-RP version.
-

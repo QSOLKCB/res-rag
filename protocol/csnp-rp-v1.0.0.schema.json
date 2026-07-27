@@ -76,7 +76,7 @@
       "const": "sha256"
     },
     "canonicalization": {
-      "const": "RES-RAG-C14N-1"
+      "const": "JCS-RFC8785"
     },
     "receipt_hash": {
       "$ref": "#/$defs/sha256"
@@ -172,7 +172,7 @@
         },
         "epsilon_min": {
           "type": "number",
-          "minimum": 0
+          "exclusiveMinimum": 0
         },
         "epsilon_max": {
           "type": "number",
@@ -262,4 +262,3 @@
     }
   }
 }
-

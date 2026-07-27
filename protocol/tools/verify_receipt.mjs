@@ -2,6 +2,7 @@
 
 import { createHash } from "node:crypto";
 import { readFile } from "node:fs/promises";
+import { pathToFileURL } from "node:url";
 
 const HASH_PATTERN = /^[0-9a-f]{64}$/;
 const CLASSIFICATIONS = new Set([
@@ -20,24 +21,34 @@ const INTERVENTIONS = new Set([
   "stop",
 ]);
 
-function compareCodePoints(left, right) {
-  const a = Array.from(left, (character) => character.codePointAt(0));
-  const b = Array.from(right, (character) => character.codePointAt(0));
-  const length = Math.min(a.length, b.length);
-  for (let index = 0; index < length; index += 1) {
-    if (a[index] !== b[index]) return a[index] - b[index];
+function assertWellFormedUnicode(value, label = "JSON string") {
+  for (let index = 0; index < value.length; index += 1) {
+    const code = value.charCodeAt(index);
+    if (code >= 0xd800 && code <= 0xdbff) {
+      const next = value.charCodeAt(index + 1);
+      if (!(next >= 0xdc00 && next <= 0xdfff)) {
+        throw new Error(`${label} contains an unpaired high surrogate`);
+      }
+      index += 1;
+    } else if (code >= 0xdc00 && code <= 0xdfff) {
+      throw new Error(`${label} contains an unpaired low surrogate`);
+    }
   }
-  return a.length - b.length;
 }
 
 export function canonicalize(value) {
-  if (value === null || typeof value === "boolean" || typeof value === "string") {
+  if (value === null || typeof value === "boolean") {
+    return JSON.stringify(value);
+  }
+
+  if (typeof value === "string") {
+    assertWellFormedUnicode(value);
     return JSON.stringify(value);
   }
 
   if (typeof value === "number") {
-    if (!Number.isFinite(value) || Object.is(value, -0)) {
-      throw new Error("Canonical JSON rejects non-finite numbers and negative zero");
+    if (!Number.isFinite(value)) {
+      throw new Error("RFC 8785 JSON canonicalization rejects non-finite numbers");
     }
     return JSON.stringify(value);
   }
@@ -47,14 +58,136 @@ export function canonicalize(value) {
   }
 
   if (typeof value === "object") {
-    const keys = Object.keys(value).sort(compareCodePoints);
-    const fields = keys.map(
-      (key) => `${JSON.stringify(key)}:${canonicalize(value[key])}`,
-    );
+    const keys = Object.keys(value).sort();
+    const fields = keys.map((key) => {
+      assertWellFormedUnicode(key, "JSON object key");
+      return `${JSON.stringify(key)}:${canonicalize(value[key])}`;
+    });
     return `{${fields.join(",")}}`;
   }
 
   throw new Error(`Unsupported JSON value type: ${typeof value}`);
+}
+
+export function parseStrictJson(text) {
+  if (typeof text !== "string") throw new Error("JSON input must be text");
+  let cursor = 0;
+
+  function skipWhitespace() {
+    while (
+      cursor < text.length
+      && (
+        text[cursor] === " "
+        || text[cursor] === "\t"
+        || text[cursor] === "\n"
+        || text[cursor] === "\r"
+      )
+    ) {
+      cursor += 1;
+    }
+  }
+
+  function parseString() {
+    if (text[cursor] !== "\"") throw new Error(`Expected string at byte ${cursor}`);
+    const start = cursor;
+    cursor += 1;
+    while (cursor < text.length) {
+      const character = text[cursor];
+      if (character === "\"") {
+        cursor += 1;
+        const value = JSON.parse(text.slice(start, cursor));
+        assertWellFormedUnicode(value);
+        return value;
+      }
+      if (character === "\\") {
+        cursor += 2;
+      } else {
+        cursor += 1;
+      }
+    }
+    throw new Error(`Unterminated string at byte ${start}`);
+  }
+
+  function parseNumber() {
+    const match = /-?(?:0|[1-9]\d*)(?:\.\d+)?(?:[eE][+-]?\d+)?/y;
+    match.lastIndex = cursor;
+    const result = match.exec(text);
+    if (!result) throw new Error(`Invalid number at byte ${cursor}`);
+    cursor = match.lastIndex;
+  }
+
+  function parseLiteral(literal) {
+    if (text.slice(cursor, cursor + literal.length) !== literal) {
+      throw new Error(`Invalid literal at byte ${cursor}`);
+    }
+    cursor += literal.length;
+  }
+
+  function parseArray() {
+    cursor += 1;
+    skipWhitespace();
+    if (text[cursor] === "]") {
+      cursor += 1;
+      return;
+    }
+    while (true) {
+      parseValue();
+      skipWhitespace();
+      if (text[cursor] === "]") {
+        cursor += 1;
+        return;
+      }
+      if (text[cursor] !== ",") throw new Error(`Expected comma at byte ${cursor}`);
+      cursor += 1;
+      skipWhitespace();
+    }
+  }
+
+  function parseObject() {
+    cursor += 1;
+    const keys = new Set();
+    skipWhitespace();
+    if (text[cursor] === "}") {
+      cursor += 1;
+      return;
+    }
+    while (true) {
+      const key = parseString();
+      if (keys.has(key)) throw new Error(`Duplicate JSON object key: ${key}`);
+      keys.add(key);
+      skipWhitespace();
+      if (text[cursor] !== ":") throw new Error(`Expected colon at byte ${cursor}`);
+      cursor += 1;
+      parseValue();
+      skipWhitespace();
+      if (text[cursor] === "}") {
+        cursor += 1;
+        return;
+      }
+      if (text[cursor] !== ",") throw new Error(`Expected comma at byte ${cursor}`);
+      cursor += 1;
+      skipWhitespace();
+    }
+  }
+
+  function parseValue() {
+    skipWhitespace();
+    const character = text[cursor];
+    if (character === "{") parseObject();
+    else if (character === "[") parseArray();
+    else if (character === "\"") parseString();
+    else if (character === "t") parseLiteral("true");
+    else if (character === "f") parseLiteral("false");
+    else if (character === "n") parseLiteral("null");
+    else parseNumber();
+  }
+
+  parseValue();
+  skipWhitespace();
+  if (cursor !== text.length) throw new Error(`Unexpected content at byte ${cursor}`);
+  const parsed = JSON.parse(text);
+  canonicalize(parsed);
+  return parsed;
 }
 
 export function sha256(value) {
@@ -104,6 +237,17 @@ function requireUnitInterval(value, label) {
   }
 }
 
+function requireRequiredUnitInterval(value, label) {
+  if (
+    typeof value !== "number"
+    || !Number.isFinite(value)
+    || value < 0
+    || value > 1
+  ) {
+    throw new Error(`${label} must be a finite number in [0, 1]`);
+  }
+}
+
 function requireFiniteNumber(value, label) {
   if (typeof value !== "number" || !Number.isFinite(value)) {
     throw new Error(`${label} must be a finite number`);
@@ -125,7 +269,7 @@ export function validateStructure(receipt) {
   if (receipt.protocol !== "CSNP-RP") throw new Error("Unsupported protocol");
   if (receipt.version !== "1.0.0") throw new Error("Unsupported version");
   if (receipt.hash_algorithm !== "sha256") throw new Error("Unsupported hash");
-  if (receipt.canonicalization !== "RES-RAG-C14N-1") {
+  if (receipt.canonicalization !== "JCS-RFC8785") {
     throw new Error("Unsupported canonicalization");
   }
   if (!CLASSIFICATIONS.has(receipt.classification)) {
@@ -151,11 +295,45 @@ export function validateStructure(receipt) {
     throw new Error("Invalid observation_id");
   }
   requireString(receipt.observed_at, "observed_at");
-  if (
-    !receipt.observed_at.endsWith("Z")
-    || Number.isNaN(Date.parse(receipt.observed_at))
-  ) {
+  const timestamp = /^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2}):(\d{2})(?:\.\d+)?Z$/
+    .exec(receipt.observed_at);
+  if (!timestamp) {
     throw new Error("observed_at must be a valid UTC RFC 3339 timestamp");
+  }
+  const [, yearText, monthText, dayText, hourText, minuteText, secondText] =
+    timestamp;
+  const year = Number(yearText);
+  const month = Number(monthText);
+  const day = Number(dayText);
+  const hour = Number(hourText);
+  const minute = Number(minuteText);
+  const second = Number(secondText);
+  const leapYear = year % 4 === 0 && (year % 100 !== 0 || year % 400 === 0);
+  const daysInMonth = [
+    31,
+    leapYear ? 29 : 28,
+    31,
+    30,
+    31,
+    30,
+    31,
+    31,
+    30,
+    31,
+    30,
+    31,
+  ];
+  if (
+    year === 0
+    || month < 1
+    || month > 12
+    || day < 1
+    || day > daysInMonth[month - 1]
+    || hour > 23
+    || minute > 59
+    || second > 59
+  ) {
+    throw new Error("observed_at must be a real UTC calendar date and time");
   }
 
   requireObject(receipt.metric_profile, "metric_profile");
@@ -171,15 +349,21 @@ export function validateStructure(receipt) {
   requireString(profile.time_unit, "metric_profile.time_unit");
   requireFiniteNumber(profile.epsilon_min, "metric_profile.epsilon_min");
   requireFiniteNumber(profile.epsilon_max, "metric_profile.epsilon_max");
-  if (profile.epsilon_min < 0 || profile.epsilon_max <= profile.epsilon_min) {
-    throw new Error("The stable band must satisfy 0 <= epsilon_min < epsilon_max");
+  if (profile.epsilon_min <= 0 || profile.epsilon_max <= profile.epsilon_min) {
+    throw new Error("The stable band must satisfy 0 < epsilon_min < epsilon_max");
   }
-  requireUnitInterval(profile.memory_warning, "metric_profile.memory_warning");
-  requireUnitInterval(
+  requireRequiredUnitInterval(
+    profile.memory_warning,
+    "metric_profile.memory_warning",
+  );
+  requireRequiredUnitInterval(
     profile.organizational_warning,
     "metric_profile.organizational_warning",
   );
-  requireUnitInterval(profile.anchoring_min, "metric_profile.anchoring_min");
+  requireRequiredUnitInterval(
+    profile.anchoring_min,
+    "metric_profile.anchoring_min",
+  );
   if (
     !Number.isInteger(profile.irreversibility_horizon)
     || profile.irreversibility_horizon < 1
@@ -295,17 +479,15 @@ async function main() {
     );
   }
 
-  const receipt = JSON.parse(await readFile(receiptPath, "utf8"));
+  const receipt = parseStrictJson(await readFile(receiptPath, "utf8"));
   const predecessor = predecessorPath
-    ? JSON.parse(await readFile(predecessorPath, "utf8"))
+    ? parseStrictJson(await readFile(predecessorPath, "utf8"))
     : null;
   const result = verifyReceipt(receipt, predecessor);
   process.stdout.write(`${JSON.stringify({ valid: true, ...result }, null, 2)}\n`);
 }
 
-const invokedPath = process.argv[1]
-  ? new URL(`file://${process.argv[1]}`).href
-  : "";
+const invokedPath = process.argv[1] ? pathToFileURL(process.argv[1]).href : "";
 if (import.meta.url === invokedPath) {
   main().catch((error) => {
     process.stderr.write(`CSNP-RP verification failed: ${error.message}\n`);
