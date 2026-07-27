@@ -13,6 +13,11 @@ Wilson John Sterking Lauret; Dominique Colin; Fatiha (Nisrine) Bouzid; and
 Timothy Sullivan. See [`AUTHORS.md`](AUTHORS.md) and the
 [contribution record](paper/CONTRIBUTIONS.md).
 
+<p align="center">
+  <strong><a href="https://github.com/QSOLKCB/res-rag-viz">Open the RES=RAG Visual &amp; Sonification Research Lab →</a></strong><br>
+  <sub>Linked Wasserstein/CSNP views, diagnostic pressure sonification, receipt validation, and reproducible research export.</sub>
+</p>
+
 The framework is grounded in **optimal transport theory** and **Wasserstein geometry**, and defines consciousness as a balance between receptive (substrate) and generative (autonomous) dynamics across distinct temporal reference frames.
 
 This repository serves as the **canonical specification layer** of the RES=RAG theory.
