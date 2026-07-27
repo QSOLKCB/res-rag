@@ -1,0 +1,685 @@
+\documentclass[11pt]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage[a4paper,margin=26mm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{booktabs,longtable,tabularx,array}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+\usepackage{natbib}
+\usepackage[hidelinks]{hyperref}
+\usepackage[nameinlink,noabbrev]{cleveref}
+
+\definecolor{resblue}{HTML}{174A7E}
+\definecolor{ragred}{HTML}{9C2F2F}
+\definecolor{softgray}{HTML}{F3F5F7}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=resblue,
+  citecolor=resblue,
+  urlcolor=resblue,
+  pdftitle={RES=RAG and the Coherent State Network Protocol},
+  pdfauthor={Jean-Charles J. C. Tassan and Trent Slade},
+  pdfsubject={Canonical formalization and deterministic reference profile v1.0.0},
+  pdfkeywords={RES=RAG, CSNP, optimal transport, Wasserstein, human-machine systems}
+}
+
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{\textsc{RES=RAG / CSNP-RP 1.0.0}}
+\rhead{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\setlength{\headheight}{14pt}
+
+\setlist[itemize]{leftmargin=*,itemsep=2pt,topsep=4pt}
+\setlist[enumerate]{leftmargin=*,itemsep=2pt,topsep=4pt}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
+\setlength{\emergencystretch}{2em}
+
+\newcommand{\RES}{\mathrm{RES}}
+\newcommand{\RAG}{\mathrm{RAG}}
+\newcommand{\CSNP}{\mathrm{CSNP}}
+\newcommand{\Wtwo}{W_2}
+\newcommand{\Ptwo}{\mathcal P_2}
+\newcommand{\State}{\mathcal S}
+\newcommand{\Eband}{\mathcal E_{\theta}}
+\newcommand{\code}[1]{\texttt{#1}}
+
+\newtheorem{definition}{Definition}
+\newtheorem{hypothesis}{Hypothesis}
+\newtheorem{proposition}{Proposition}
+\newtheorem{protocolrule}{Protocol rule}
+
+\title{
+  \vspace{-1.5cm}
+  {\color{resblue}\textbf{RES=RAG and the Coherent State Network Protocol}}\\[4pt]
+  \large A Formal Architecture for Endogenous Stability in Human-Machine Systems\\[8pt]
+  \normalsize Canonical formalization and deterministic reference profile,
+  version 1.0.0
+}
+
+\author{
+  Jean-Charles J. C. Tassan\textsuperscript{1}
+  \and
+  Trent Slade\textsuperscript{2}\\[-2pt]
+  \small
+  \textsuperscript{1}Independent researcher,
+  \href{https://orcid.org/0009-0000-8566-0486}{ORCID 0009-0000-8566-0486}\\
+  \small
+  \textsuperscript{2}QSOL-IMC,
+  \href{https://orcid.org/0009-0002-4515-9237}{ORCID 0009-0002-4515-9237}
+}
+
+\date{Version 1.0.0 --- 27 July 2026}
+
+\begin{document}
+\maketitle
+
+\begin{center}
+\fcolorbox{resblue}{softgray}{
+  \parbox{0.92\linewidth}{
+    \textbf{Epistemic status.}
+    This is a formal specification and testable research programme. It does not
+    report a completed empirical validation, prove machine consciousness, or
+    claim that human-machine interaction is a physical quantum system.
+  }
+}
+\end{center}
+
+\begin{abstract}
+RES=RAG models stable intelligence as a regulated tension between receptive,
+context-grounded dynamics (RES) and internally generative,
+novelty-producing dynamics (RAG). The central claim is not that the two
+distributions become equal. Stability instead occupies a calibrated, non-zero
+optimal-transport band: too little separation produces rigidity, while
+excessive separation produces instability, fabrication, or loss of
+coordination.
+
+This paper consolidates the conceptual framework introduced by Jean-Charles
+Tassan with the optimal-transport, information-substrate,
+operational-variable, and systems-validation work developed with Trent Slade.
+It supplies a common state space, measurable quantities, explicit failure
+conditions, and a protocol boundary. The Coherent State Network Protocol
+(CSNP) turns the model into a cyclic
+observation-classification-intervention-receipt process. A deterministic
+reference profile, CSNP-RP 1.0.0, defines canonical JSON receipts, hash
+chaining, calibration declarations, evidence references, and replay rules.
+
+The result is deliberately modest in epistemic scope. RES=RAG is presented as
+a falsifiable architecture for studying regulated dialogue and distributed
+human-machine coordination. Thresholds are calibration parameters, not
+universal constants; Wasserstein distances depend on declared encoders and
+sampling procedures. The contribution is therefore a reproducible theory and
+protocol specification from which empirical studies can be designed.
+\end{abstract}
+
+\section{Scope and provenance}
+
+RES=RAG begins from a relational thesis: stable cognition is not adequately
+described by reception or generation alone, but by their regulated
+co-presence across human, machine, and interaction domains. The originating
+framework and three-axis organization are due to Tassan. Subsequent joint
+work introduced an optimal-transport reading, a history-dependent
+informational substrate, dual operators, and interface-level observables
+\citep{tassan-slade-dialogical,slade-tassan-substrate,slade-tassan-uftid}.
+The canonical repository then separated axioms, predictions, falsifiers, and
+ethical constraints \citep{resrag-repository}.
+
+This version has four goals:
+\begin{enumerate}
+  \item preserve the canonical distinction between receptive and generative
+        dynamics;
+  \item express equilibrium as a bounded, non-zero transport relation;
+  \item connect the theory to observations available at a human-machine
+        interface; and
+  \item define an auditable protocol and deterministic receipt format.
+\end{enumerate}
+
+Only work directly connected to RES=RAG is included. Broader field theories,
+unrelated QSOL-IMC systems, and uncited external projects are outside scope.
+
+\subsection{Claim labels}
+
+\begin{table}[ht]
+\centering
+\small
+\begin{tabularx}{\linewidth}{>{\bfseries}p{0.23\linewidth}X}
+\toprule
+Label & Meaning in this paper\\
+\midrule
+Definition & A convention that gives the specification a precise meaning.\\
+Protocol rule & A normative requirement for CSNP-RP conformance.\\
+Hypothesis & A claim that can be tested and rejected.\\
+Reported target & A value from exploratory work that is not established here.\\
+Limitation & A known boundary on interpretation or implementation.\\
+\bottomrule
+\end{tabularx}
+\caption{Epistemic labels used throughout the formalization.}
+\label{tab:labels}
+\end{table}
+
+Claims such as a 40-fold memory reduction, hallucination below
+0.02 percent, coherence near 0.96, or universal collapse thresholds are not
+results of this formalization. If adopted by an implementation, they must be
+marked as external, unvalidated targets and coupled to a citable measurement
+procedure.
+
+\section{Formal objects}
+
+Let $(\State,d)$ be a declared Polish metric space, and let
+$\Ptwo(\State)$ be the probability measures on $\State$ with finite second
+moment. A state can represent a semantic embedding, dialogue state, task state,
+or another reproducible encoding. The representation, sampling rule, and ground
+metric are part of the study specification.
+
+\begin{definition}[Functional distributions]
+At observation $t$,
+\[
+\mu_t^{\RES}\in\Ptwo(\State)
+\quad\text{and}\quad
+\mu_t^{\RAG}\in\Ptwo(\State)
+\]
+denote respectively the receptive, contextual, evidence-conditioned
+distribution and the generative, novelty-producing distribution.
+\end{definition}
+
+These are functional roles. RAG here means regenerative or generative
+dynamics; it is not restricted to the engineering pattern usually called
+retrieval-augmented generation.
+
+For $\mu,\nu\in\Ptwo(\State)$, the quadratic Wasserstein distance is
+\begin{equation}
+\Wtwo^2(\mu,\nu)
+=
+\inf_{\gamma\in\Pi(\mu,\nu)}
+\int_{\State\times\State}d(x,y)^2\,\mathrm d\gamma(x,y),
+\label{eq:w2}
+\end{equation}
+where $\Pi(\mu,\nu)$ is the set of couplings with marginals $\mu$ and $\nu$
+\citep{villani2009,ambrosio2008}. Define
+\begin{equation}
+w_t=\Wtwo\!\left(\mu_t^{\RES},\mu_t^{\RAG}\right).
+\label{eq:separation}
+\end{equation}
+
+\subsection{Bounded equilibrium}
+
+\begin{definition}[RES=RAG equilibrium]
+For calibration profile
+$\theta=(\varepsilon_{\min},\varepsilon_{\max},\ldots)$, where
+$0\leq\varepsilon_{\min}<\varepsilon_{\max}$, the stable set is
+\begin{equation}
+\Eband=
+\left\{
+(\mu^\RES,\mu^\RAG):
+\varepsilon_{\min}\leq
+\Wtwo(\mu^\RES,\mu^\RAG)
+\leq\varepsilon_{\max}
+\right\}.
+\label{eq:band}
+\end{equation}
+\end{definition}
+
+The equality sign in RES=RAG names this regulated relation. It does not require
+pointwise identity or zero transport. Below the lower boundary, the process
+risks sterility, repetition, or over-constraint; above the upper boundary, it
+risks drift, fabrication, or loss of shared reference.
+
+The distance-to-band diagnostic
+\begin{equation}
+e_\theta(w_t)=
+\max(0,\varepsilon_{\min}-w_t)
++
+\max(0,w_t-\varepsilon_{\max})
+\label{eq:bandpenalty}
+\end{equation}
+is non-negative and vanishes precisely inside the declared stable interval.
+
+\begin{proposition}[Non-minimization]
+Minimizing $w_t$ without the lower bound is not a valid RES=RAG objective.
+\end{proposition}
+
+\begin{proof}
+An unconstrained minimum admits $w_t=0$. By \cref{eq:band}, that point is
+outside the stable set whenever $\varepsilon_{\min}>0$, and it erases the
+productive difference the model is intended to preserve.
+\end{proof}
+
+\subsection{Temporal-reference discrepancy}
+
+Let $\mu_t^H$ and $\mu_t^M$ be declared human-side and machine-side state
+estimates.
+\begin{definition}[Operational real-time discrepancy]
+\begin{equation}
+T_{\mathrm{Real}}(t)=\Wtwo(\mu_t^H,\mu_t^M).
+\label{eq:treal}
+\end{equation}
+\end{definition}
+$T_{\mathrm{Real}}$ is a discrepancy between situated reference frames. It is
+not physical clock time. A conforming empirical study must declare the
+estimator, window, encoder, ground metric, and uncertainty.
+
+\subsection{History-dependent information state}
+
+Let $s_t\in\mathcal M$ be a history-dependent information state. The
+informational-substrate formalization motivates the phenomenological dynamics
+\begin{equation}
+\frac{\mathrm ds}{\mathrm dt}
+=
+\mathcal G(s,t)-\mathcal R(s,t),
+\label{eq:operators}
+\end{equation}
+where $\mathcal G$ is a generative operator and $\mathcal R$ is a
+receptive-regulatory operator \citep{slade-tassan-substrate}. These operators
+are not physical forces. A study using \cref{eq:operators} must specify how
+their outputs induce the probability measures in \cref{eq:separation};
+operator balance alone does not prove membership in \(\Eband\).
+
+\section{Axes and interpretive modes}
+
+The framework separates three coupled domains.
+
+\begin{table}[ht]
+\centering
+\small
+\begin{tabularx}{\linewidth}{>{\bfseries}p{0.12\linewidth}p{0.28\linewidth}X}
+\toprule
+Axis & Domain & Example observation\\
+\midrule
+I & Human internal regulation
+  & Attention, affective stability, stated uncertainty.\\
+II & Human-machine relational regulation
+   & Semantic alignment, repair, pacing, and shared reference.\\
+III & Machine functional regulation
+    & Response distribution, retrieval grounding, novelty, and constraint
+      density.\\
+\bottomrule
+\end{tabularx}
+\caption{The three RES=RAG axes. Axis II is a relational process, not an
+attribute of either participant alone.}
+\label{tab:axes}
+\end{table}
+
+Two interpretive modes constrain inference:
+\begin{itemize}
+  \item \textbf{Mode A, phenomenological or anthropomorphic:} language that
+        treats the machine as if it possessed a first-person interior.
+  \item \textbf{Mode B, functional or instrumental:} language tied to
+        observable behavior, declared state, and reproducible measurement.
+\end{itemize}
+Mode B is the implementation and safety default. Mode A can be studied as a
+user-facing phenomenon, but must not be converted into evidence of machine
+consciousness. This discipline also reduces anthropomorphic and relational
+risk \citep{bender2021,weidinger2022}.
+
+\section{Interface-level observables}
+
+The framework permits mesoscopic measurement without privileged access to
+model internals \citep{slade-tassan-uftid}. Let $P_t(z)$ be a declared or
+reconstructed distribution over candidate next units $z$. Its entropy is
+$H(P_t)$ \citep{shannon1948,cover2006}. For a window of $T$ observations,
+define normalized constraint density
+\begin{equation}
+\rho_c(t)
+=
+\frac{1}{T}\sum_{i=t-T+1}^{t}
+\left(1-\frac{H(P_i)}{H_{\max,i}}\right).
+\label{eq:density}
+\end{equation}
+The normalization $H_{\max,i}$ must be declared. If token probabilities are
+unavailable, a proxy receives a distinct metric identifier.
+
+For observation interval $\Delta\tau_t>0$, define propagation rate
+\begin{equation}
+v_c(t)=
+\frac{\rho_c(t)-\rho_c(t-1)}{\Delta\tau_t}.
+\label{eq:rate}
+\end{equation}
+Let $\kappa_t>0$ estimate the response capacity of the observer or governance
+loop in the same reciprocal-time unit. With a declared numerical floor
+$\epsilon>0$, define the dimensionless pressure
+\begin{equation}
+D_r(t)=
+\frac{\max(0,v_c(t))}{\max(\kappa_t,\epsilon)}.
+\label{eq:pressure}
+\end{equation}
+
+\begin{hypothesis}[Rate-capacity warning]
+$D_r(t)>1$ predicts a loss of governability before semantic failure.
+\label{hyp:capacity}
+\end{hypothesis}
+This is a warning condition, not proof of irreversible failure.
+
+\section{Coherent State Network Protocol}
+
+In version 1.0.0, CSNP means \emph{Coherent State Network Protocol}. Earlier
+work used \emph{Client-Side Narrative Protocol} for a sovereign-memory
+implementation. The earlier term is preserved as an optional storage profile,
+not as the canonical expansion of the protocol name.
+
+\subsection{Observed state}
+
+At step $t$, CSNP observes
+\begin{equation}
+X_t=
+\left(
+\delta_t,D_c(t),D_r(t),m(t),w_t,S_{\mathrm{org}}(t),F(t)
+\right),
+\label{eq:state}
+\end{equation}
+where:
+\begin{itemize}
+  \item $\delta_t=T_{\mathrm{Real}}(t)$ is human-machine reference discrepancy;
+  \item $D_c(t)=\rho_c(t)\in[0,1]$ is normalized constraint density;
+  \item $D_r(t)\geq0$ is the rate pressure in \cref{eq:pressure};
+  \item $m(t)\in[0,1]$ is memory saturation under a declared estimator;
+  \item $w_t\geq0$ is the RES-RAG Wasserstein separation;
+  \item $S_{\mathrm{org}}(t)\in[0,1]$ is a declared organizational
+        incoherence score; and
+  \item $F(t)\in[0,1]$ is accountable anchoring availability.
+\end{itemize}
+An unimplemented metric is unavailable, not zero.
+
+Given intervention $u_t$, an implementation realizes
+\begin{equation}
+\Phi_\theta(X_t,u_t)
+\longrightarrow
+\left(X_{t+1},C_t,A_t,R_t\right),
+\label{eq:transition}
+\end{equation}
+where $C_t$ is a classification, $A_t$ an admissible action, and $R_t$ a
+deterministic receipt.
+
+\subsection{Protocol cycle}
+
+\begin{enumerate}
+  \item \textbf{Declare}: select versioned metric and calibration profiles.
+  \item \textbf{Observe}: collect measurements and evidence references.
+  \item \textbf{Classify}: apply the profile with no hidden thresholds.
+  \item \textbf{Intervene}: select the least-force admissible action.
+  \item \textbf{Receipt}: canonicalize, hash, and chain the observation.
+  \item \textbf{Replay}: verify integrity, evidence, rules, and outcome.
+  \item \textbf{Recalibrate}: change thresholds only in a new profile version.
+\end{enumerate}
+
+\subsection{Classifications}
+
+\begin{description}[leftmargin=30mm,style=nextline]
+  \item[Governable]
+    $w_t$ is within its band, $D_r\leq1$, memory and organizational measures are
+    below warnings, and anchoring is sufficient.
+  \item[Critical]
+    At least one warning is exceeded, but an admissible intervention is
+    expected to return the process to the stable set within the declared
+    horizon.
+  \item[Irreversible]
+    Under a declared finite intervention set and test horizon, no admissible
+    intervention returns the observed process to the calibrated stable set.
+    This is a protocol result, not a metaphysical claim.
+  \item[Indeterminate]
+    Required measurements, evidence, or calibration data are missing or
+    invalid.
+\end{description}
+
+\begin{protocolrule}[Irreversibility]
+A single threshold crossing must not produce an irreversible classification.
+The intervention set, evaluation horizon, uncertainty policy, and recovery
+criterion are required.
+\end{protocolrule}
+
+\subsection{Reference interventions}
+
+\begin{table}[ht]
+\centering
+\small
+\begin{tabularx}{\linewidth}{>{\ttfamily}p{0.24\linewidth}X}
+\toprule
+\normalfont\textbf{Action} & \textbf{Intended effect}\\
+\midrule
+none          & Continue observation inside the stable band.\\
+slowdown      & Reduce interaction or generation rate.\\
+diversify     & Restore productive novelty below the lower band.\\
+retrieve      & Add verifiable external grounding.\\
+clarify       & Repair ambiguity or conflicting state estimates.\\
+human\_handoff & Transfer authority to an accountable human.\\
+stop          & End an unsafe or unauditable process.\\
+\bottomrule
+\end{tabularx}
+\caption{The CSNP-RP reference action vocabulary. Intervention success is
+measured, not assumed.}
+\label{tab:actions}
+\end{table}
+
+\section{Deterministic reference profile}
+
+CSNP-RP 1.0.0 defines machine-readable receipts for
+\cref{eq:transition}. A receipt contains the protocol version, observation and
+calibration identifiers, normalized measurements, classification,
+intervention, evidence references, previous-receipt digest, state digest, and
+receipt digest.
+
+\subsection{Canonicalization}
+
+The repository-defined \code{RES-RAG-C14N-1} procedure:
+\begin{enumerate}
+  \item recursively sorts object keys by Unicode code point;
+  \item preserves array order;
+  \item serializes UTF-8 JSON without insignificant whitespace;
+  \item permits only finite JSON numbers and rejects negative zero; and
+  \item preserves JSON boolean and null literals.
+\end{enumerate}
+
+The state projection contains \code{metric\_profile}, \code{measurements},
+\code{observation\_id}, \code{observed\_at}, and
+\code{previous\_receipt\_hash}. Its canonical UTF-8 bytes are hashed with
+SHA-256 to obtain \code{state\_hash}. The complete receipt, with only
+\code{receipt\_hash} omitted, is then canonicalized and hashed to obtain
+\code{receipt\_hash}.
+
+For a chain of receipts $R_0,\ldots,R_n$,
+\begin{equation}
+R_t.\code{previous\_receipt\_hash}
+=
+\operatorname{SHA256}\!\left(
+\operatorname{canonical}(R_{t-1}\setminus
+\{\code{receipt\_hash}\})
+\right).
+\label{eq:chain}
+\end{equation}
+The first link uses null. Integrity does not establish sensor truth,
+measurement validity, confidentiality, or actor trust.
+
+\subsection{Reference classifier}
+
+For complete measurements, the profile admits \code{governable} only if
+\begin{align}
+\varepsilon_{\min}
+&\leq w_t\leq\varepsilon_{\max}, \nonumber\\
+D_r(t)&\leq1, \nonumber\\
+m(t)&<K_M, \nonumber\\
+S_{\mathrm{org}}(t)&<K_{\mathrm{org}}, \nonumber\\
+F(t)&\geq F_{\min}.
+\label{eq:classifier}
+\end{align}
+The values $K_M$, $K_{\mathrm{org}}$, and $F_{\min}$ are versioned calibration
+parameters. They are not universal constants.
+
+\subsection{Replay boundary}
+
+A complete replay parses the receipt with strict duplicate-key and number
+handling, validates its schema, recomputes both digests, verifies the chain and
+evidence hashes, loads the exact metric profile, reruns the classifier, and
+records any disagreement. The bundled dependency-free verifier performs
+structural, hash, and predecessor-link checks. Evidence retrieval and full JSON
+Schema validation remain integration responsibilities.
+
+\section{Safety constraints}
+
+RES=RAG yields design constraints rather than a single maximization objective:
+\begin{enumerate}
+  \item do not optimize RES-RAG separation toward zero;
+  \item distinguish retrieved evidence from generated content;
+  \item retain estimator uncertainty and missing data;
+  \item do not infer machine consciousness from anthropomorphic language;
+  \item do not use user agreement as an Axis II stability proxy;
+  \item preserve accountable human control over consequential intervention;
+  \item classify unauditable state as indeterminate rather than safe; and
+  \item give any client-side narrative store export, deletion, provenance,
+        consent, and access controls.
+\end{enumerate}
+
+\section{Hypotheses and falsification programme}
+
+\renewcommand{\arraystretch}{1.16}
+\begin{longtable}{>{\bfseries}p{0.07\linewidth}p{0.42\linewidth}p{0.42\linewidth}}
+\caption{Testable RES=RAG and CSNP hypotheses.}
+\label{tab:hypotheses}\\
+\toprule
+ID & Hypothesis & Example falsifier\\
+\midrule
+\endfirsthead
+\toprule
+ID & Hypothesis & Example falsifier\\
+\midrule
+\endhead
+H1 & Task quality peaks within a calibrated non-zero $W_2$ band.
+   & Quality is monotonic in distance or unaffected across preregistered tasks.\\
+H2 & $D_r>1$ predicts governability loss before semantic failure.
+   & It has no out-of-sample predictive value over matched baselines.\\
+H3 & Slowdown improves recovery under high rate pressure.
+   & Randomized slowdown does not improve return-to-band time.\\
+H4 & Relevant retrieval reduces above-band drift.
+   & Retrieval worsens or does not change controlled grounded accuracy.\\
+H5 & Diversity interventions improve below-band sterility.
+   & Novelty-adjusted task quality does not improve.\\
+H6 & Axis II adds predictive value beyond separate Axis I and III measures.
+   & A joint model does not outperform preregistered separate baselines.\\
+H7 & Hash-chained receipts improve incident reconstruction.
+   & Blinded teams reconstruct incidents equally well without receipts.\\
+H8 & Style-only politeness is insufficient to recover high-density,
+     high-rate states.
+   & Style-only intervention matches rate- or density-targeted intervention.\\
+\bottomrule
+\end{longtable}
+
+Each study should preregister the representation, encoder, ground metric,
+window, thresholds, missing-data rule, intervention set, outcome, and baseline.
+Thresholds fitted and tested on the same data are not independent validation.
+
+\section{Limitations}
+
+\begin{itemize}
+  \item Wasserstein values are representation-dependent; encoders and ground
+        metrics can produce incompatible distances.
+  \item Interface proxies do not identify internal mental or computational
+        states without additional assumptions.
+  \item The framework establishes neither human nor machine phenomenal
+        consciousness.
+  \item ``Quantum-like'' denotes contextual or non-classical behavioral
+        structure only, not physical quantum computation.
+  \item The dual-operator equation is phenomenological and may fail for
+        discrete, path-dependent, or non-stationary systems.
+  \item Deterministic receipts establish provenance integrity, not semantic
+        truth.
+  \item This release is a specification and verifier, not a benchmark,
+        clinical instrument, or production safety certification.
+\end{itemize}
+
+\section{Research pathway}
+
+A disciplined programme proceeds from synthetic traces to held-out studies:
+\begin{enumerate}
+  \item construct traces with known drift and recovery events;
+  \item compare declared semantic representations and sensitivity to ground
+        metrics;
+  \item calibrate thresholds on development data and freeze them;
+  \item test \cref{tab:hypotheses} on held-out human-machine interactions;
+  \item publish receipts, metric profiles, code, uncertainty, and negative
+        results; and
+  \item evaluate client-controlled memory under privacy, deletion, and
+        adversarial-integrity tests.
+\end{enumerate}
+Claims of broad societal impact should follow reproducible evidence. The
+immediate contribution is narrower: RES=RAG now has a coherent mathematical
+interpretation, an operational protocol, explicit falsifiers, and an auditable
+implementation boundary.
+
+\section*{Authorship and contributions}
+
+The conceptual origin of RES=RAG, its receptive-generative distinction, and
+its three-axis relational structure are attributed to Jean-Charles J. C.
+Tassan. The computational interpretation, optimal-transport architecture,
+history-dependent information model, operational variables, deterministic
+protocol profile, validation boundary, and release engineering are attributed
+to Trent Slade, developed in collaboration with Tassan.
+
+The repository contains the proposed CRediT-compatible statement. In summary:
+Tassan is proposed as lead for conceptualization and supervision, supporting
+methodology, and equal for original drafting and review; Slade is proposed as
+lead for methodology, formal analysis, software, validation, visualization,
+and project administration, supporting conceptualization, and equal for
+original drafting and review. CRediT describes contribution rather than
+determining authorship \citep{brand2022credit}. Both authors must approve the
+final author order, contribution statement, affiliations, and archival
+metadata before DOI deposit.
+
+\section*{Artifact availability}
+
+The normative schema, protocol, verifier, tamper tests, Markdown manuscript,
+LaTeX source, bibliography, and compiled PDF are maintained in the public
+repository:
+\begin{center}
+\url{https://github.com/QSOLKCB/res-rag}
+\end{center}
+
+\bibliographystyle{plainnat}
+\bibliography{references}
+
+\appendix
+\section{Normative artifact map}
+
+\begin{table}[ht]
+\centering
+\small
+\begin{tabularx}{\linewidth}{>{\raggedright\arraybackslash}p{0.48\linewidth}X}
+\toprule
+\textbf{Path} & \textbf{Role}\\
+\midrule
+\path{paper/RES_RAG_CSNP_Formalization_v1.0.0.tex}
+  & Archival LaTeX source.\\
+\path{paper/RES_RAG_CSNP_Formalization_v1.0.0.pdf}
+  & Compiled review copy.\\
+\path{paper/RES_RAG_CSNP_Formalization_v1.0.0.md}
+  & GitHub-readable manuscript.\\
+\path{paper/CONTRIBUTIONS.md}
+  & Proposed authorship and provenance record.\\
+\path{protocol/CSNP-RP_v1.0.0.md}
+  & Normative protocol rules.\\
+\path{protocol/csnp-rp-v1.0.0.schema.json}
+  & Receipt JSON Schema.\\
+\path{protocol/examples/csnp-receipt.example.json}
+  & Conforming synthetic receipt.\\
+\path{protocol/tools/verify_receipt.mjs}
+  & Dependency-free integrity verifier.\\
+\path{protocol/tests/verify_receipt.test.mjs}
+  & Validity and tamper tests.\\
+\bottomrule
+\end{tabularx}
+\caption{Version 1.0.0 artifact set.}
+\end{table}
+
+\section{Implementation note}
+
+The canonicalization profile is intentionally small enough for independent
+implementation. It is not a substitute for a general-purpose canonical JSON
+standard. Cross-language deployments should first test a shared corpus of
+strings, integer and fixed-precision values, arrays, and nested objects.
+Changing numeric semantics or key ordering requires a new CSNP-RP version.
+
+\end{document}
