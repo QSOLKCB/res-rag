@@ -1,5 +1,5 @@
 # RES=RAG — Relational Equilibrium Framework
-
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21625282.svg)](https://doi.org/10.5281/zenodo.21625282)
 **Origin Theory:** Jean-Charles Tassan  
 **Formal Specification & Systems Architecture:** Trent Slade (QSOL-IMC)
 
