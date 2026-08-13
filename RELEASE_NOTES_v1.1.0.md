@@ -66,6 +66,8 @@ This release does not claim to prove machine consciousness, establish physical s
 
 The companion v1.1.0 archival bundle includes the final PDF, Markdown and LaTeX sources, bibliography, CSNP-RP 1.1.0 specification, JSON Schema and example receipt, HAL-to-CSNP integration specification, authorship/contribution records, Zenodo-ready deposit metadata, citation metadata, release notes, CC BY 4.0 notice, and SHA-256 manifest.
 
+The rebuilt archival PDF is 18 pages after adding the rendered bibliography and review hardening.
+
 ## Tagging sequence
 
 1. Merge the v1.1.0 formal-paper release PR.
