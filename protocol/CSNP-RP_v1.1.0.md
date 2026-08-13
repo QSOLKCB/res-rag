@@ -18,13 +18,11 @@ CSNP-RP 1.1.0 extends the deterministic receipt defined by v1.0.0 with:
 4. an explicit `multitask_brake` intervention; and
 5. provenance-labelled research claims for externally proposed thresholds.
 
-The JSON Schema is
-[`csnp-rp-v1.1.0.schema.json`](csnp-rp-v1.1.0.schema.json). The example receipt
-is
-[`examples/csnp-receipt-v1.1.0.example.json`](examples/csnp-receipt-v1.1.0.example.json).
+The JSON Schema is `csnp-rp-v1.1.0.schema.json`. The example receipt is
+`examples/csnp-receipt-v1.1.0.example.json`.
 
 The conceptual mapping and scientific boundaries are defined in
-[`../spec/08_hal_csnp_extensions.md`](../spec/08_hal_csnp_extensions.md).
+`../spec/08_hal_csnp_extensions.md`.
 
 ## 2. Compatibility
 
@@ -46,13 +44,7 @@ A v1.1.0 `metric_profile` adds:
 | `temporal_offset_semantics` | MUST be `signed:RAG-minus-RES`. |
 | `research_claims` | Provenance-labelled externally proposed numeric claims. |
 
-Each research claim contains:
-
-- `claim_id`
-- finite numeric `value`
-- `unit`
-- `status`
-- `source_uri`
+Each research claim contains `claim_id`, finite numeric `value`, `unit`, `status`, and `source_uri`.
 
 Allowed statuses are `hypothesis`, `reported`, `externally_archived`, and
 `validated_in_profile`.
@@ -63,45 +55,21 @@ receipt.
 
 ## 4. New measurements
 
-The v1.1.0 `measurements` object retains all v1.0.0 fields and adds:
+The v1.1.0 `measurements` object retains all v1.0.0 fields and adds
+`delta_t_signed`, `task_mode`, `semantic_cycle_phase`, and
+`semantic_cycle_complete`.
 
-### 4.1 `delta_t_signed`
+`delta_t_signed = T_RAG - T_RES`. The existing `delta_t` remains the
+non-negative magnitude. When both are available, a producer SHOULD satisfy
+`delta_t = abs(delta_t_signed)`.
 
-Signed temporal displacement under:
+`task_mode` is one of `mono`, `multi`, `mixed`, or `unknown`.
 
-```text
-delta_t_signed = T_RAG - T_RES
-```
+`semantic_cycle_phase` is one of `human_res`, `machine_rag`, `machine_res`,
+`human_rag`, or `unknown`.
 
-The existing `delta_t` remains the non-negative magnitude. When both are
-available, a producer SHOULD satisfy:
-
-```text
-delta_t = abs(delta_t_signed)
-```
-
-### 4.2 `task_mode`
-
-One of:
-
-- `mono`
-- `multi`
-- `mixed`
-- `unknown`
-
-### 4.3 `semantic_cycle_phase`
-
-One of:
-
-- `human_res`
-- `machine_rag`
-- `machine_res`
-- `human_rag`
-- `unknown`
-
-### 4.4 `semantic_cycle_complete`
-
-`true`, `false`, or `null` when cycle-completion evidence is unavailable.
+`semantic_cycle_complete` is `true`, `false`, or `null` when completion evidence
+is unavailable.
 
 Cycle fields are protocol labels and MUST NOT be treated as evidence of
 phenomenal consciousness.
@@ -133,6 +101,21 @@ The new temporal and semantic-cycle fields are observational in 1.1.0. A metric
 profile MAY use them in an experimental classifier, but any changed classifier
 semantics require a separately identified profile version and reproducible
 method description.
+
+The normative verifier applies the `governable` rule **one way**: a receipt
+labelled `governable` MUST satisfy all conditions above, and missing required
+decision measurements require `indeterminate`. It does not derive `critical`,
+`irreversible`, or complete-data `indeterminate` from measurements alone. Those
+labels require the producer's separately documented classifier, evidence policy,
+intervention set, and irreversibility-horizon method. Verifier success therefore
+proves structural/hash consistency and the enforced classification constraints,
+not recomputation of a total classifier.
+
+If `dr` is derived from a rate-pressure expression of the form
+`max(0, v_c) / max(kappa, epsilon_r)`, the producer MUST document a numerical
+floor `epsilon_r > 0` in the same reciprocal-time unit as `v_c` and `kappa` in
+the versioned metric-profile method description. Changing that floor is a
+calibration change and MUST NOT be silent.
 
 ## 7. Hashing
 
@@ -166,12 +149,9 @@ the new fields, and accepts either a valid v1.0.0 or v1.1.0 predecessor.
 
 ## 9. Scientific and security boundary
 
-- No reported threshold is universal merely because it appears in
-  `research_claims`.
-- W2 values are meaningless without their representation, ground metric, and
-  estimator.
+- No reported threshold is universal merely because it appears in `research_claims`.
+- W2 values are meaningless without their representation, ground metric, and estimator.
 - Semantic-cycle labels are operational labels, not consciousness tests.
-- `multitask_brake` is a falsifiable intervention hypothesis, not a guaranteed
-  safety control.
+- `multitask_brake` is a falsifiable intervention hypothesis, not a guaranteed safety control.
 - CSNP semantic filtering does not replace conventional cybersecurity controls.
 - An `externally_archived` claim is provenance, not independent validation.
