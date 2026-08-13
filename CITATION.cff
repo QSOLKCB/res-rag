@@ -2,8 +2,8 @@ cff-version: 1.2.0
 message: "If you use this framework, please cite it as below."
 title: "RES=RAG: Relational Equilibrium between Substrate and Generation"
 type: software
-version: 1.0.0
-date-released: 2026-07-24
+version: 1.1.0
+date-released: 2026-08-13
 
 authors:
   - family-names: Tassan
@@ -41,10 +41,12 @@ repository-code: https://github.com/QSOLKCB/res-rag
 
 abstract: >
   RES=RAG is a formal theoretical framework for receptive-generative
-  equilibrium in human-machine systems. Version 1.0.0 defines a bounded,
-  non-zero Wasserstein equilibrium, operational interface variables, explicit
-  falsifiers, and the Coherent State Network Protocol deterministic reference
-  profile for observation, intervention, receipt chaining, and replay.
+  equilibrium in human-machine systems. Version 1.0.0 established the archival
+  formal paper and first deterministic CSNP reference profile. Repository
+  version 1.1.0 adds a HAL-derived operational extension with signed RES/RAG
+  temporal offsets, four-stage semantic-cycle labels, a testable multi-task
+  braking intervention, and provenance-labelled research claims while retaining
+  local metric-profile calibration and the v1.0.0 scientific boundaries.
 
 keywords:
   - consciousness
