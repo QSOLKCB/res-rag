@@ -38,7 +38,8 @@ abstract: >
   with signed RES/RAG temporal displacement, four-stage semantic-cycle labels,
   a falsifiable multi-task braking intervention, and provenance-labelled
   research claims while preserving local metric-profile calibration and the
-  v1.0 reference classifier.
+  v1.0 reference governability predicate. Receipt verification enforces that
+  predicate one way rather than deriving the complete classification label set.
 
 keywords:
   - consciousness
