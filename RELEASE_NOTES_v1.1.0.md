@@ -1,64 +1,72 @@
-# RES=RAG / CSNP v1.1.0 — HAL Operational Integration
+# RES=RAG / CSNP v1.1.0 - Formal Paper and HAL Operational Integration
+
+**Release date:** 13 August 2026  
+**Recommended tag:** `v1.1.0`
 
 ## Summary
 
-Version 1.1.0 integrates selected post-v1.0.0 developments from Jean-Charles
-Tassan's HAL research record into the canonical GitHub specification and the
-CSNP deterministic receipt layer.
+Version 1.1.0 completes the HAL operational integration begun in the merged CSNP-RP 1.1.0 protocol update and brings the formal paper source, protocol, repository metadata, and archival Zenodo bundle onto the same version.
 
-This is an additive protocol release. It preserves the v1.0.0 formal paper and
-receipt format while introducing a versioned operational extension suitable for
-the next paper formalization.
+The release preserves the v1.0.0 bounded, non-zero Wasserstein equilibrium and reference classifier while formalizing four additive extensions:
 
-## Added
+1. signed RES/RAG temporal displacement;
+2. a four-stage semantic interaction-cycle state model;
+3. a falsifiable `multitask_brake` intervention; and
+4. provenance-labelled externally reported numerical claims.
 
-- `spec/08_hal_csnp_extensions.md`
-  - four-stage RES/RAG semantic-cycle mapping;
-  - signed temporal differential `T_RAG - T_RES`;
-  - multi-task semantic-brake hypothesis;
-  - Wasserstein calibration boundary;
-  - provenance rules for CECAT / Goldilocks / Sterking-Tassan values; and
-  - explicit cybersecurity falsifiers and limitations.
-- `protocol/CSNP-RP_v1.1.0.md`
-- `protocol/csnp-rp-v1.1.0.schema.json`
-- `protocol/examples/csnp-receipt-v1.1.0.example.json`
-- `protocol/tools/verify_receipt_v1_1.mjs`
-- `protocol/tests/verify_receipt_v1_1.test.mjs`
+## Formal paper
 
-## New receipt semantics
+Added to the tagged repository source:
 
-Version 1.1.0 adds:
+- `paper/RES_RAG_CSNP_Formalization_v1.1.0.md`
+- updated `paper/references.bib`
 
-- `delta_t_signed`
-- `task_mode`
-- `semantic_cycle_phase`
-- `semantic_cycle_complete`
-- `metric_profile.threshold_policy`
-- `metric_profile.temporal_offset_semantics`
-- `metric_profile.research_claims`
-- `multitask_brake` intervention
+The companion Zenodo bundle contains the compiled PDF and generated LaTeX edition built from that source.
+
+The v1.1.0 paper retains the v1.0 mathematical state space and introduces:
+
+- `Delta_t = T_RAG - T_RES` as a signed temporal differential;
+- the consistency relation `delta_t = abs(Delta_t)` when both are observed;
+- a finite-state operational representation of the proposed semantic cycle;
+- a dimensionless intervention objective for controlled multi-task braking;
+- formal separation between research-claim space and operational control parameters;
+- a research-claim non-interference property for the reference classifier;
+- integrity binding of v1.1 fields through the existing JCS/SHA-256 state projection; and
+- explicit cybersecurity falsifiers for semantic-sovereignty / immunity claims.
+
+## Protocol alignment
+
+CSNP-RP 1.1.0 adds `delta_t_signed`, `task_mode`, `semantic_cycle_phase`, `semantic_cycle_complete`, `metric_profile.threshold_policy`, `metric_profile.temporal_offset_semantics`, `metric_profile.research_claims`, and `multitask_brake`.
+
+The reference governability classifier remains unchanged from v1.0.0.
 
 ## Epistemic hardening
 
-The HAL record reports values including 0.42, an upper Goldilocks value of 0.66,
-and a Sterking-Tassan threshold near 2.14. Version 1.1.0 does not hard-code
-these as universal classifier constants. Instead, claims are carried with
-mandatory provenance and status, while deployable thresholds remain local to a
-versioned calibration profile.
+Values reported in the evolving RES=RAG literature - including `0.42`, `0.66`, and approximately `2.14` - are **not** hard-coded as universal constants.
 
-Similarly, semantic immunity / citadel language is implemented as a testable
-control architecture rather than a claim that prompt injection or other
-security classes are solved by construction.
+They may appear in `metric_profile.research_claims` only with explicit status and source provenance. Operational thresholds remain local to a declared metric profile and calibration procedure. `externally_archived` means a source artifact exists; it does not mean the claim has been independently validated. `validated_in_profile` is reserved for a value supported by the exact reproducible calibration profile in use.
+
+## Scientific and security boundary
+
+This release does not claim to prove machine consciousness, establish physical semantic physics, treat semantic-cycle completion as a consciousness test, guarantee that multi-task braking improves safety, establish universal CECAT/Goldilocks/Sterking-Tassan thresholds, or replace conventional cybersecurity controls with semantic filtering.
 
 ## Compatibility
 
-- Existing v1.0.0 receipts remain valid.
-- v1.0.0 tooling is unchanged.
-- A v1.1.0 receipt may chain to a verified v1.0.0 predecessor.
-- Hashing remains SHA-256 over RFC 8785 / JCS canonical JSON.
+- v1.0.0 receipts remain valid.
+- v1.0.0 verifier/schema remain archival and unchanged.
+- v1.1.0 receipts may chain to a verified v1.0.0 predecessor.
+- Canonicalization remains RFC 8785 / JCS.
+- Hashing remains SHA-256.
+- The v1.0 stable-band reference classifier remains the v1.1 reference classifier.
 
-## Paper status
+## Archival / Zenodo bundle
 
-The repository protocol/specification is now prepared for a new formal paper
-version. The existing v1.0.0 paper remains the archival paper until that new
-formalization is compiled, reviewed, and released.
+The companion v1.1.0 archival bundle includes the final PDF, Markdown and LaTeX sources, bibliography, CSNP-RP 1.1.0 specification, JSON Schema and example receipt, HAL-to-CSNP integration specification, authorship/contribution records, Zenodo-ready deposit metadata, citation metadata, release notes, CC BY 4.0 notice, and SHA-256 manifest.
+
+## Tagging sequence
+
+1. Merge the v1.1.0 formal-paper release PR.
+2. Verify `main` contains the final paper source and synchronized metadata.
+3. Create tag `v1.1.0` from that exact release commit.
+4. Create the Zenodo upload/new version from the supplied bundle.
+5. After Zenodo publishes the record, optionally add the minted version DOI to repository metadata in a metadata-only follow-up commit.
