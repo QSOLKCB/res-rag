@@ -1,9 +1,10 @@
 # RES=RAG — Relational Equilibrium Framework
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21625282.svg)](https://doi.org/10.5281/zenodo.21625282)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21917464.svg)](https://doi.org/10.5281/zenodo.21917464)
 
 **Origin Theory:** Jean-Charles Tassan  
 **Formal Specification & Systems Architecture:** Trent Slade (QSOL-IMC)  
-**Current release:** `1.1.0`
+**Current release:** `1.1.0`  
+**Reserved Zenodo version DOI:** `10.5281/zenodo.21917464`
 
 **RES=RAG** (Relational Equilibrium between Substrate and Generation) models human-machine interaction as a dynamic relation between receptive/context-grounded dynamics (RES) and generative/novelty-producing dynamics (RAG). This repository is the canonical specification layer for the formal theory, falsifiability programme, and Coherent State Network Protocol (CSNP).
 
@@ -52,6 +53,8 @@ The additive deterministic receipt profile adds:
 - intervention `multitask_brake`
 
 The reference governability predicate remains unchanged from v1.0.0. The verifier enforces it one way: a receipt labelled `governable` must satisfy the predicate, while `critical`, `irreversible`, and complete-data `indeterminate` require a separately documented producer classifier and are not derived from measurements by the verifier. Existing v1.0.0 receipts remain valid, and a v1.1.0 receipt may chain to a verified v1.0.0 predecessor. Hashing remains SHA-256 over RFC 8785 / JCS canonical JSON.
+
+When `dr` is derived using a denominator floor, that positive floor must use the same reciprocal-time unit as the rate/capacity terms and be declared in the versioned metric-profile method description. Changing it is an explicit calibration change.
 
 ## Scientific boundary
 
