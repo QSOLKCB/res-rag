@@ -1,7 +1,8 @@
 # RES=RAG / CSNP v1.1.0 - Formal Paper and HAL Operational Integration
 
 **Release date:** 13 August 2026  
-**Recommended tag:** `v1.1.0`
+**Recommended tag:** `v1.1.0`  
+**Reserved Zenodo version DOI:** `10.5281/zenodo.21917464`
 
 ## Summary
 
@@ -66,12 +67,12 @@ This release does not claim to prove machine consciousness, establish physical s
 
 The companion v1.1.0 archival bundle includes the final PDF, Markdown and LaTeX sources, bibliography, CSNP-RP 1.1.0 specification, JSON Schema and example receipt, HAL-to-CSNP integration specification, authorship/contribution records, Zenodo-ready deposit metadata, citation metadata, release notes, CC BY 4.0 notice, and SHA-256 manifest.
 
-The rebuilt archival PDF is 18 pages after adding the rendered bibliography and review hardening.
+The rebuilt archival PDF is 18 pages after adding the rendered bibliography and review hardening. The reserved Zenodo DOI `10.5281/zenodo.21917464` is incorporated into the release metadata and archival publication files before deposit publication.
 
 ## Tagging sequence
 
 1. Merge the v1.1.0 formal-paper release PR.
-2. Verify `main` contains the final paper source and synchronized metadata.
+2. Verify `main` contains the final paper source, reserved DOI metadata, and synchronized release surfaces.
 3. Create tag `v1.1.0` from that exact release commit.
-4. Create the Zenodo upload/new version from the supplied bundle.
-5. After Zenodo publishes the record, optionally add the minted version DOI to repository metadata in a metadata-only follow-up commit.
+4. Upload the final archival bundle to the already-created Zenodo version draft for DOI `10.5281/zenodo.21917464`.
+5. Verify the Zenodo preview and publish the record.
