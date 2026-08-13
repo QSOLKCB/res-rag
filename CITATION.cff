@@ -83,4 +83,5 @@ preferred-citation:
   title: "RES=RAG and the Coherent State Network Protocol: A Formal Architecture for Endogenous Stability in Human-Machine Systems"
   year: 2026
   journal: "Version 1.1.0 preprint"
-  url: https://github.com/QSOLKCB/res-rag
+  doi: 10.5281/zenodo.21917464
+  url: https://doi.org/10.5281/zenodo.21917464
