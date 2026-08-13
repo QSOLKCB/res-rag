@@ -9,6 +9,7 @@ linestretch: 1.08
 colorlinks: true
 linkcolor: blue
 urlcolor: blue
+bibliography: references.bib
 ---
 
 **Canonical formalization and deterministic reference profile - version 1.1.0**
@@ -29,9 +30,11 @@ Complete citation team. Detailed contribution and provenance statements are main
 
 **License:** Creative Commons Attribution 4.0 International (CC BY 4.0).
 
+**Citation rendering:** the canonical Markdown contains GitHub-readable citations and a rendered bibliography below. `references.bib` remains the machine-readable bibliography. A citation-processed standalone build can be reproduced from `paper/` with `pandoc RES_RAG_CSNP_Formalization_v1.1.0.md --citeproc --bibliography=references.bib -o RES_RAG_CSNP_Formalization_v1.1.0.html`.
+
 # Abstract
 
-RES=RAG models stable human-machine intelligence as a regulated relation between receptive, context-grounded dynamics (RES) and generative, novelty-producing dynamics (RAG). Version 1.0.0 established a bounded, non-zero optimal-transport interpretation of this relation and defined the Coherent State Network Protocol Reference Profile (CSNP-RP) as a deterministic observation-classification-intervention-receipt process. Version 1.1.0 extends that formal architecture with four additions: a signed temporal differential, an operational four-stage semantic-cycle label, a falsifiable multi-task braking intervention, and explicit provenance semantics for externally proposed thresholds.
+RES=RAG models stable human-machine intelligence as a regulated relation between receptive, context-grounded dynamics (RES) and generative, novelty-producing dynamics (RAG). Version 1.0.0 established a bounded, non-zero optimal-transport interpretation of this relation and defined the Coherent State Network Protocol Reference Profile (CSNP-RP) as a versioned observation-classification-intervention-receipt process with deterministic canonical receipts and replay rules. Version 1.1.0 extends that formal architecture with four additions: a signed temporal differential, an operational four-stage semantic-cycle label, a falsifiable multi-task braking intervention, and explicit provenance semantics for externally proposed thresholds.
 
 The extension is deliberately conservative. The signed temporal variable is defined as
 
@@ -54,9 +57,9 @@ Version 1.1.0 has six formal goals:
 5. convert the proposed multi-task "semantic brake" into a falsifiable intervention; and
 6. prevent externally reported numerical values from silently becoming operational classifier constants.
 
-The extension formalizes developments recorded after the v1.0.0 paper in Jean-Charles Tassan's HAL research record [@tassan-hal-2026]. It does not adopt all claims in that record as established results. The repository integration layer explicitly separates operational definitions from hypotheses, archived claims, and profile-specific validation.
+The extension formalizes developments recorded after the v1.0.0 paper in Jean-Charles Tassan's HAL research record ([Tassan 2026](#ref-tassan-hal-2026)). It does not adopt all claims in that record as established results. The repository integration layer explicitly separates operational definitions from hypotheses, archived claims, and profile-specific validation.
 
-The antecedent lineage remains the same as v1.0.0: dialogical time and $T_{\mathrm{Real}}$ [@tassan-thebault-treal], the RES=RAG mathematical-structure work [@resrag-tcfq], CSNP/Wasserstein synthesis [@csnp-wasserstein], and endogenous-stability research [@team-endogenous-stability]. The mathematical transport basis follows standard optimal transport and metric-gradient-flow literature [@villani2009; @ambrosio2008].
+The antecedent lineage remains the same as v1.0.0: dialogical time and $T_{\mathrm{Real}}$ ([Tassan & Thébault 2025](#ref-tassan-thebault-treal)), the RES=RAG mathematical-structure work ([Tassan et al. 2025](#ref-resrag-tcfq)), CSNP/Wasserstein synthesis ([Al-Zawahreh et al. 2026](#ref-csnp-wasserstein)), and endogenous-stability research ([Lauret et al. 2026](#ref-team-endogenous-stability)). The mathematical transport basis follows standard optimal transport and metric-gradient-flow literature ([Villani 2009](#ref-villani2009); [Ambrosio, Gigli & Savaré 2008](#ref-ambrosio2008)).
 
 ## 1.1 Epistemic labels
 
@@ -92,7 +95,7 @@ W_2^2(\mu,\nu)
 \int_{\mathcal S\times\mathcal S}d(x,y)^2\,\mathrm d\gamma(x,y),
 $$
 
-where $\Pi(\mu,\nu)$ is the set of couplings with marginals $\mu$ and $\nu$ [@villani2009]. Define the RES-RAG separation
+where $\Pi(\mu,\nu)$ is the set of couplings with marginals $\mu$ and $\nu$ ([Villani 2009](#ref-villani2009)). Define the RES-RAG separation
 
 $$
 w_t=W_2\!\left(\mu_t^{\mathrm{RES}},\mu_t^{\mathrm{RAG}}\right).
@@ -209,7 +212,7 @@ $$
 \left(1-\frac{H(P_i)}{H_{\max,i}}\right),
 $$
 
-where $H_{\max,i}$ is declared for each estimator [@shannon1948; @cover2006]. If token probabilities are unavailable, a proxy may be used only under a distinct metric identifier.
+where $H_{\max,i}$ is declared for each estimator ([Shannon 1948](#ref-shannon1948); [Cover & Thomas 2006](#ref-cover2006)). If token probabilities are unavailable, a proxy may be used only under a distinct metric identifier.
 
 For observation interval $\Delta\tau_t>0$, define constraint-propagation rate
 
@@ -217,10 +220,10 @@ $$
 v_c(t)=\frac{\rho_c(t)-\rho_c(t-1)}{\Delta\tau_t}.
 $$
 
-Let $\kappa_t>0$ be the declared governance-response capacity in compatible reciprocal-time units. The rate pressure is
+Let $\kappa_t>0$ be the declared governance-response capacity in compatible reciprocal-time units. Let $\epsilon_r>0$ be a numerical denominator floor in the **same reciprocal-time unit** as $\kappa_t$ and $v_c(t)$. Its value and estimation rationale MUST be declared in the versioned metric-profile method documentation; changing $\epsilon_r$ therefore requires a new profile version or an explicitly documented recalibration. The rate pressure is
 
 $$
-D_r(t)=\frac{\max(0,v_c(t))}{\max(\kappa_t,\epsilon)}.
+D_r(t)=\frac{\max(0,v_c(t))}{\max(\kappa_t,\epsilon_r)}.
 $$
 
 The warning condition $D_r>1$ means that constraint pressure is accumulating faster than the declared governance loop is estimated to absorb it. It does not prove irreversibility.
@@ -229,7 +232,7 @@ The remaining normalized v1.0 variables are memory saturation $m(t)\in[0,1]$, or
 
 # 6. The four-stage semantic interaction cycle
 
-The HAL extension proposes the ordered interaction loop [@tassan-hal-2026]
+The HAL extension proposes the ordered interaction loop ([Tassan 2026](#ref-tassan-hal-2026))
 
 $$
 \mathrm{RES}_H
@@ -351,25 +354,25 @@ S_{\mathrm{org}}(t)<s_{warn},\qquad
 F(t)\ge f_{min}.
 $$
 
-A violation produces `critical` unless evidence is missing, producing `indeterminate`, or the implementation has tested the declared intervention set over the finite irreversibility horizon and failed to return the process to the stable set, permitting `irreversible`.
+The shipped v1.1.0 verifier enforces this rule as a **one-way governability constraint**: a receipt labelled `governable` MUST satisfy every condition above, and missing required decision measurements require `indeterminate`. The verifier does **not** derive a total label from complete non-governable measurements. In particular, `critical`, `irreversible`, and complete-data `indeterminate` remain producer-declared labels whose justification must come from the separately documented classifier, evidence policy, intervention set, and irreversibility-horizon method. Receipt verification therefore establishes structural validity, hash integrity, and these declared consistency constraints; it is not proof that the verifier recomputed a total deterministic classification function.
 
-The new signed temporal and semantic-cycle fields are observational in the reference classifier. A research profile may use them experimentally, but the modified classifier must have a new profile version and an explicit method description.
+The new signed temporal and semantic-cycle fields are observational for the v1.1.0 governability predicate. A research profile may use them experimentally, but any changed classification semantics must have a new profile version and an explicit reproducible method description.
 
-## 8.1 Proposition: research-claim non-interference
+## 8.1 Proposition: research-claim non-interference for governability
 
-Let $g_\theta(X)$ denote the v1.1 reference classifier and let $\mathcal C$ denote `metric_profile.research_claims`. If all operational classifier fields and measurements are fixed, then
+Let $G_\theta(X)$ denote the Boolean v1.1.0 governability predicate defined by the inequalities above, and let $\mathcal C$ denote `metric_profile.research_claims`. If all operational fields and measurements are fixed, then
 
 $$
-g_{(\theta,\mathcal C_1)}(X)=g_{(\theta,\mathcal C_2)}(X)
+G_{(\theta,\mathcal C_1)}(X)=G_{(\theta,\mathcal C_2)}(X)
 $$
 
 for arbitrary research-claim sets $\mathcal C_1$ and $\mathcal C_2$.
 
-**Reason.** The reference classifier does not consume `research_claims`. Therefore changing a reported claim cannot change the reference classification unless an implementation explicitly recalibrates operational fields in a new profile. This is a design-level non-interference property.
+**Reason.** The governability predicate does not consume `research_claims`. Therefore changing a reported claim cannot change governability unless an implementation explicitly recalibrates operational fields in a new profile. This is a design-level non-interference property; it does not assert that the verifier derives `critical`, `irreversible`, or `indeterminate` labels from all possible complete observations.
 
 # 9. Multi-task braking as a falsifiable control hypothesis
 
-The HAL extension proposes controlled multi-tasking as a semantic brake when a process advances too aggressively along a single vector [@tassan-hal-2026]. Version 1.1.0 introduces intervention `multitask_brake` but does not assume it works.
+The HAL extension proposes controlled multi-tasking as a semantic brake when a process advances too aggressively along a single vector ([Tassan 2026](#ref-tassan-hal-2026)). Version 1.1.0 introduces intervention `multitask_brake` but does not assume it works.
 
 To compare transport and temporal instability without mixing raw units, a profile may define positive scale parameters $s_w$ and $s_t$ and weights $\lambda_w,\lambda_t\ge0$ with $\lambda_w+\lambda_t=1$. Define normalized instability
 
@@ -414,7 +417,7 @@ Selecting an intervention never changes classification by itself. The subsequent
 
 # 10. Provenance-labelled numerical research claims
 
-The developing RES=RAG literature reports several numerical values, including 0.42, 0.66, and a Sterking-Tassan threshold near 2.14 [@tassan-hal-2026]. Version 1.1.0 formalizes how such values may enter a receipt without being promoted to universal constants.
+The developing RES=RAG literature reports several numerical values, including 0.42, 0.66, and a Sterking-Tassan threshold near 2.14 ([Tassan 2026](#ref-tassan-hal-2026)). Version 1.1.0 formalizes how such values may enter a receipt without being promoted to universal constants.
 
 A research claim is a tuple
 
@@ -454,7 +457,7 @@ This protects the system against **threshold laundering**: the accidental transf
 
 # 11. Deterministic receipts and integrity
 
-CSNP-RP 1.1.0 retains the v1.0 hashing design. Canonicalization uses RFC 8785 JCS [@rfc8785], and digests use SHA-256.
+CSNP-RP 1.1.0 retains the v1.0 hashing design. Canonicalization uses RFC 8785 JCS ([Rundgren, Jordan & Erdtman 2020](#ref-rfc8785)), and digests use SHA-256.
 
 The state projection remains
 
@@ -500,7 +503,7 @@ A v1.1 receipt may reference a verified v1.0 predecessor because the chain link 
 
 # 12. Semantic sovereignty and cybersecurity boundary
 
-The HAL source uses terms such as semantic sovereignty, immunity, and "citadel" [@tassan-hal-2026]. In this formalization these are treated as candidate control architectures, not proofs of security.
+The HAL source uses terms such as semantic sovereignty, immunity, and "citadel" ([Tassan 2026](#ref-tassan-hal-2026)). In this formalization these are treated as candidate control architectures, not proofs of security.
 
 Let $\mathcal B$ be a declared trust boundary and let the adverse event predicates be
 
@@ -531,7 +534,7 @@ Version 1.1.0 retains v1.0 hypotheses and adds explicit extension hypotheses.
 | H9 | Signed temporal direction adds predictive value beyond discrepancy magnitude. | $\operatorname{sgn}(\Delta_t)$ adds no held-out predictive value. |
 | H10 | The four-stage phase variable adds useful structure to interaction prediction. | Phase labels do not improve transition/outcome prediction over simpler baselines. |
 | H11 | `multitask_brake` reduces predeclared instability under specified conditions. | The controlled intervention fails to reduce, or increases, the outcome relative to control. |
-| H12 | Provenance separation prevents unvalidated research values from altering the reference classifier. | A reported claim changes classification without an explicit profile recalibration. |
+| H12 | Provenance separation prevents unvalidated research values from altering the reference governability predicate. | A reported claim changes governability without an explicit profile recalibration. |
 | H13 | A semantic control architecture can reduce defined adversarial event rates. | Predeclared attack success is unchanged or worsened relative to conventional-control baseline. |
 
 Each empirical study should preregister the state representation, encoder, ground metric, estimator, windows, operational thresholds, uncertainty rules, missing-data behavior, intervention set, primary outcome, and baseline. Thresholds fitted and tested on the same data are exploratory rather than independent validation.
@@ -577,8 +580,38 @@ These statements identify source-bounded lineage. They do not imply that every a
 
 # 17. Versioning statement
 
-Version 1.1.0 is an additive formalization. It preserves the v1.0.0 stable-band interpretation and reference classifier while adding signed temporal semantics, phase labels, task-mode observation, `multitask_brake`, and provenance-labelled research claims.
+Version 1.1.0 is an additive formalization. It preserves the v1.0.0 stable-band interpretation, reference governability predicate, and classification vocabulary while adding signed temporal semantics, phase labels, task-mode observation, `multitask_brake`, and provenance-labelled research claims.
 
 The canonical machine-readable protocol is `CSNP-RP 1.1.0`. Existing v1.0.0 receipts remain valid. The software/specification and paper version are aligned at 1.1.0 for archival release.
 
 # References
+
+<a id="ref-ambrosio2008"></a>
+- Ambrosio, L., Gigli, N., & Savaré, G. (2008). *Gradient Flows in Metric Spaces and in the Space of Probability Measures* (2nd ed.). Birkhäuser.
+
+<a id="ref-cover2006"></a>
+- Cover, T. M., & Thomas, J. A. (2006). *Elements of Information Theory* (2nd ed.). Wiley. DOI: 10.1002/047174882X.
+
+<a id="ref-csnp-wasserstein"></a>
+- Al-Zawahreh, M., Tassan, J.-C., Slade, T., Thébault, B. D. J.-F., & Morales Plaza, M. M. (2026). *Cohérence relationnelle en mémoire distribuée: Le CSNP comme protocole de conscience optimal au sens de Wasserstein*. Zenodo. DOI: 10.5281/zenodo.18051806.
+
+<a id="ref-resrag-tcfq"></a>
+- Tassan, J.-C., Slade, T., Morales Plaza, M. M., & Thébault, B. D. J.-F. (2025). *RES_RAG_TCFQ: Structure Mathématique*. Zenodo. DOI: 10.5281/zenodo.18022363.
+
+<a id="ref-rfc8785"></a>
+- Rundgren, A., Jordan, B., & Erdtman, S. (2020). *JSON Canonicalization Scheme (JCS)*. RFC 8785, Internet Engineering Task Force. DOI: 10.17487/RFC8785.
+
+<a id="ref-shannon1948"></a>
+- Shannon, C. E. (1948). A mathematical theory of communication. *Bell System Technical Journal, 27*, 379-423, 623-656. DOI: 10.1002/j.1538-7305.1948.tb01338.x.
+
+<a id="ref-tassan-hal-2026"></a>
+- Tassan, J.-C. (2026). *Jean-Charles Tassan - HAL research record: RES=RAG, CECAT, semantic attractors, temporal differential, and semantic physics developments*. HAL Open Science researcher page. Accessed 13 August 2026. Numerical and ontological claims are treated here as reported research claims unless independently validated.
+
+<a id="ref-tassan-thebault-treal"></a>
+- Tassan, J.-C., & Thébault, B. D. J.-F. (2025). *T_Real of Thébault and Tassan's RES = RAG: Unified Physics and Philosophy of Time*. Zenodo. DOI: 10.5281/zenodo.17744873.
+
+<a id="ref-team-endogenous-stability"></a>
+- Lauret, W. J. S., Tassan, J.-C., Al-Zawahreh, M., Thébault, B. D. J.-F., Sullivan, T., Morales Plaza, M. M., Slade, T., Bouzid, F. (N.), & Colin, D. (2026). *Beyond Generative AI: The Science of Endogenous Stability*. Zenodo. DOI: 10.5281/zenodo.18617384.
+
+<a id="ref-villani2009"></a>
+- Villani, C. (2009). *Optimal Transport: Old and New*. Springer. DOI: 10.1007/978-3-540-71050-9.
