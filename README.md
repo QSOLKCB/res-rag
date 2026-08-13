@@ -2,16 +2,24 @@
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21625282.svg)](https://doi.org/10.5281/zenodo.21625282)
 
 **Origin Theory:** Jean-Charles Tassan  
-**Formal Specification & Systems Architecture:** Trent Slade (QSOL-IMC)
+**Formal Specification & Systems Architecture:** Trent Slade (QSOL-IMC)  
+**Current repository protocol:** `1.1.0` (HAL operational integration)
 
 **RES=RAG** (Relational Equilibrium between Substrate and Generation) is a formal theoretical framework developed by **Jean-Charles Tassan** for modeling consciousness and human–machine interaction as a **dynamic relational equilibrium**, rather than an intrinsic property of isolated systems.  
 This repository contains the **formal specification, axiomatization, falsifiability layer, and ethical translation** consolidated and maintained by **Trent Slade (QSOL-IMC)**, with the CSNP, dialogical-time, mathematical-structure, and endogenous-stability provenance of the complete collaborative team.
 
-**Version 1.0.0 citation team:** Jean-Charles J. C. Tassan; Trent Slade;
+**Version 1.0.0 paper citation team:** Jean-Charles J. C. Tassan; Trent Slade;
 Mohamad Al-Zawahreh; Bertrand D. J.-F. Thébault; Manuel Martín Morales Plaza;
 Wilson John Sterking Lauret; Dominique Colin; Fatiha (Nisrine) Bouzid; and
 Timothy Sullivan. See [`AUTHORS.md`](AUTHORS.md) and the
 [contribution record](paper/CONTRIBUTIONS.md).
+
+> **v1.1.0:** the repository now includes a HAL-derived CSNP extension for the
+> four-stage semantic interaction cycle, signed `T_RAG - T_RES`, multi-task
+> braking experiments, and provenance-labelled research thresholds. See
+> [`spec/08_hal_csnp_extensions.md`](spec/08_hal_csnp_extensions.md) and
+> [`protocol/CSNP-RP_v1.1.0.md`](protocol/CSNP-RP_v1.1.0.md). The archival paper
+> remains v1.0.0 until the next formal paper revision is compiled and released.
 
 <p align="center">
   <strong><a href="https://github.com/QSOLKCB/res-rag-viz">Open the RES=RAG Visual &amp; Sonification Research Lab →</a></strong><br>
@@ -87,6 +95,10 @@ T_{\text{Real}} = |\text{RES} - \text{RAG}|
 
 interpreted as a Wasserstein-structured measure of reference-frame misalignment.
 
+The v1.1.0 CSNP extension additionally records the signed operational offset
+`delta_t_signed = T_RAG - T_RES` while retaining the non-negative discrepancy
+magnitude for compatibility.
+
 ---
 
 ## 4. Energy, Learning, and Transport
@@ -139,13 +151,14 @@ This repository contains:
 - Conceptual diagrams and mathematical relations
 - Formal falsifiability conditions
 - Ethical and regulatory translation layer
+- Versioned CSNP receipt schemas and deterministic verifiers
 
 This repository **does not** contain:
-- Empirical code
-- Numerical solvers
+- Empirical solvers
 - Benchmark datasets
+- Evidence that author-reported thresholds are universal constants
 
-Those are provided in companion repositories:
+Those are provided or developed in companion repositories and future validation work:
 
 - `resrag-metrics` — computational implementation  
 - `resrag-benchmark` — experimental validation suite  
@@ -167,7 +180,7 @@ Its unique contribution is treating **consciousness as a transport-regulated rel
 
 ## 8. Citation Status
 
-The consolidated version 1.0.0 citation includes all nine members of the team:
+The consolidated version 1.0.0 paper citation includes all nine members of the team:
 Jean-Charles J. C. Tassan; Trent Slade; Mohamad Al-Zawahreh; Bertrand D.
 J.-F. Thébault; Manuel Martín Morales Plaza; Wilson John Sterking Lauret;
 Dominique Colin; Fatiha (Nisrine) Bouzid; and Timothy Sullivan.
@@ -190,10 +203,29 @@ It reframes consciousness research from a **detection problem** to a **cultivati
 
 ---
 
-## 10. Formalization and CSNP v1.0.0
+## 10. Formalization and CSNP releases
 
-Version 1.0.0 adds a publication-ready formalization and the deterministic
-Coherent State Network Protocol reference profile.
+### v1.1.0 — HAL operational integration
+
+Version 1.1.0 adds an operational bridge from the post-v1.0.0 HAL material into
+CSNP without rewriting the archived paper prematurely.
+
+- [Release notes](RELEASE_NOTES_v1.1.0.md)
+- [HAL-to-CSNP integration spec](spec/08_hal_csnp_extensions.md)
+- [CSNP-RP 1.1.0](protocol/CSNP-RP_v1.1.0.md)
+- [Receipt JSON Schema 1.1.0](protocol/csnp-rp-v1.1.0.schema.json)
+- [Example receipt 1.1.0](protocol/examples/csnp-receipt-v1.1.0.example.json)
+- [Verifier 1.1.0](protocol/tools/verify_receipt_v1_1.mjs)
+- [Verifier tests 1.1.0](protocol/tests/verify_receipt_v1_1.test.mjs)
+
+Reported CECAT / Goldilocks / Sterking-Tassan values are carried as
+provenance-labelled research claims and are not silently promoted to universal
+classifier constants. W₂ thresholds remain local calibration values.
+
+### v1.0.0 — archival formal paper and reference profile
+
+Version 1.0.0 established the publication-ready formalization and first
+deterministic Coherent State Network Protocol reference profile.
 
 - [Release notes](RELEASE_NOTES_v1.0.0.md)
 - [Formal paper (PDF)](paper/RES_RAG_CSNP_Formalization_v1.0.0.pdf)
