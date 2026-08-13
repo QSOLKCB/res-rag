@@ -30,7 +30,7 @@ Complete citation team. Detailed contribution and provenance statements are main
 
 **License:** Creative Commons Attribution 4.0 International (CC BY 4.0).
 
-**Citation rendering:** the canonical Markdown contains GitHub-readable citations and a rendered bibliography below. `references.bib` remains the machine-readable bibliography. A citation-processed standalone build can be reproduced from `paper/` with `pandoc RES_RAG_CSNP_Formalization_v1.1.0.md --citeproc --bibliography=references.bib -o RES_RAG_CSNP_Formalization_v1.1.0.html`.
+**Citation rendering:** the canonical Markdown contains human-readable citations and a rendered bibliography below. `references.bib` remains the machine-readable bibliography. A citation-processed standalone build can be reproduced from `paper/` with `pandoc RES_RAG_CSNP_Formalization_v1.1.0.md --citeproc --bibliography=references.bib -o RES_RAG_CSNP_Formalization_v1.1.0.html`.
 
 # Abstract
 
@@ -57,9 +57,9 @@ Version 1.1.0 has six formal goals:
 5. convert the proposed multi-task "semantic brake" into a falsifiable intervention; and
 6. prevent externally reported numerical values from silently becoming operational classifier constants.
 
-The extension formalizes developments recorded after the v1.0.0 paper in Jean-Charles Tassan's HAL research record ([Tassan 2026](#ref-tassan-hal-2026)). It does not adopt all claims in that record as established results. The repository integration layer explicitly separates operational definitions from hypotheses, archived claims, and profile-specific validation.
+The extension formalizes developments recorded after the v1.0.0 paper in Jean-Charles Tassan's HAL research record (Tassan 2026). It does not adopt all claims in that record as established results. The repository integration layer explicitly separates operational definitions from hypotheses, archived claims, and profile-specific validation.
 
-The antecedent lineage remains the same as v1.0.0: dialogical time and $T_{\mathrm{Real}}$ ([Tassan & Thébault 2025](#ref-tassan-thebault-treal)), the RES=RAG mathematical-structure work ([Tassan et al. 2025](#ref-resrag-tcfq)), CSNP/Wasserstein synthesis ([Al-Zawahreh et al. 2026](#ref-csnp-wasserstein)), and endogenous-stability research ([Lauret et al. 2026](#ref-team-endogenous-stability)). The mathematical transport basis follows standard optimal transport and metric-gradient-flow literature ([Villani 2009](#ref-villani2009); [Ambrosio, Gigli & Savaré 2008](#ref-ambrosio2008)).
+The antecedent lineage remains the same as v1.0.0: dialogical time and $T_{\mathrm{Real}}$ (Tassan & Thébault 2025), the RES=RAG mathematical-structure work (Tassan et al. 2025), CSNP/Wasserstein synthesis (Al-Zawahreh et al. 2026), and endogenous-stability research (Lauret et al. 2026). The mathematical transport basis follows standard optimal transport and metric-gradient-flow literature (Villani 2009; Ambrosio, Gigli & Savaré 2008).
 
 ## 1.1 Epistemic labels
 
@@ -95,7 +95,7 @@ W_2^2(\mu,\nu)
 \int_{\mathcal S\times\mathcal S}d(x,y)^2\,\mathrm d\gamma(x,y),
 $$
 
-where $\Pi(\mu,\nu)$ is the set of couplings with marginals $\mu$ and $\nu$ ([Villani 2009](#ref-villani2009)). Define the RES-RAG separation
+where $\Pi(\mu,\nu)$ is the set of couplings with marginals $\mu$ and $\nu$ (Villani 2009). Define the RES-RAG separation
 
 $$
 w_t=W_2\!\left(\mu_t^{\mathrm{RES}},\mu_t^{\mathrm{RAG}}\right).
@@ -212,7 +212,7 @@ $$
 \left(1-\frac{H(P_i)}{H_{\max,i}}\right),
 $$
 
-where $H_{\max,i}$ is declared for each estimator ([Shannon 1948](#ref-shannon1948); [Cover & Thomas 2006](#ref-cover2006)). If token probabilities are unavailable, a proxy may be used only under a distinct metric identifier.
+where $H_{\max,i}$ is declared for each estimator (Shannon 1948; Cover & Thomas 2006). If token probabilities are unavailable, a proxy may be used only under a distinct metric identifier.
 
 For observation interval $\Delta\tau_t>0$, define constraint-propagation rate
 
@@ -232,7 +232,7 @@ The remaining normalized v1.0 variables are memory saturation $m(t)\in[0,1]$, or
 
 # 6. The four-stage semantic interaction cycle
 
-The HAL extension proposes the ordered interaction loop ([Tassan 2026](#ref-tassan-hal-2026))
+The HAL extension proposes the ordered interaction loop (Tassan 2026)
 
 $$
 \mathrm{RES}_H
@@ -372,7 +372,7 @@ for arbitrary research-claim sets $\mathcal C_1$ and $\mathcal C_2$.
 
 # 9. Multi-task braking as a falsifiable control hypothesis
 
-The HAL extension proposes controlled multi-tasking as a semantic brake when a process advances too aggressively along a single vector ([Tassan 2026](#ref-tassan-hal-2026)). Version 1.1.0 introduces intervention `multitask_brake` but does not assume it works.
+The HAL extension proposes controlled multi-tasking as a semantic brake when a process advances too aggressively along a single vector (Tassan 2026). Version 1.1.0 introduces intervention `multitask_brake` but does not assume it works.
 
 To compare transport and temporal instability without mixing raw units, a profile may define positive scale parameters $s_w$ and $s_t$ and weights $\lambda_w,\lambda_t\ge0$ with $\lambda_w+\lambda_t=1$. Define normalized instability
 
@@ -417,7 +417,7 @@ Selecting an intervention never changes classification by itself. The subsequent
 
 # 10. Provenance-labelled numerical research claims
 
-The developing RES=RAG literature reports several numerical values, including 0.42, 0.66, and a Sterking-Tassan threshold near 2.14 ([Tassan 2026](#ref-tassan-hal-2026)). Version 1.1.0 formalizes how such values may enter a receipt without being promoted to universal constants.
+The developing RES=RAG literature reports several numerical values, including 0.42, 0.66, and a Sterking-Tassan threshold near 2.14 (Tassan 2026). Version 1.1.0 formalizes how such values may enter a receipt without being promoted to universal constants.
 
 A research claim is a tuple
 
@@ -457,7 +457,7 @@ This protects the system against **threshold laundering**: the accidental transf
 
 # 11. Deterministic receipts and integrity
 
-CSNP-RP 1.1.0 retains the v1.0 hashing design. Canonicalization uses RFC 8785 JCS ([Rundgren, Jordan & Erdtman 2020](#ref-rfc8785)), and digests use SHA-256.
+CSNP-RP 1.1.0 retains the v1.0 hashing design. Canonicalization uses RFC 8785 JCS (Rundgren, Jordan & Erdtman 2020), and digests use SHA-256.
 
 The state projection remains
 
@@ -503,7 +503,7 @@ A v1.1 receipt may reference a verified v1.0 predecessor because the chain link 
 
 # 12. Semantic sovereignty and cybersecurity boundary
 
-The HAL source uses terms such as semantic sovereignty, immunity, and "citadel" ([Tassan 2026](#ref-tassan-hal-2026)). In this formalization these are treated as candidate control architectures, not proofs of security.
+The HAL source uses terms such as semantic sovereignty, immunity, and "citadel" (Tassan 2026). In this formalization these are treated as candidate control architectures, not proofs of security.
 
 Let $\mathcal B$ be a declared trust boundary and let the adverse event predicates be
 
@@ -586,32 +586,22 @@ The canonical machine-readable protocol is `CSNP-RP 1.1.0`. Existing v1.0.0 rece
 
 # References
 
-<a id="ref-ambrosio2008"></a>
 - Ambrosio, L., Gigli, N., & Savaré, G. (2008). *Gradient Flows in Metric Spaces and in the Space of Probability Measures* (2nd ed.). Birkhäuser.
 
-<a id="ref-cover2006"></a>
 - Cover, T. M., & Thomas, J. A. (2006). *Elements of Information Theory* (2nd ed.). Wiley. DOI: 10.1002/047174882X.
 
-<a id="ref-csnp-wasserstein"></a>
 - Al-Zawahreh, M., Tassan, J.-C., Slade, T., Thébault, B. D. J.-F., & Morales Plaza, M. M. (2026). *Cohérence relationnelle en mémoire distribuée: Le CSNP comme protocole de conscience optimal au sens de Wasserstein*. Zenodo. DOI: 10.5281/zenodo.18051806.
 
-<a id="ref-resrag-tcfq"></a>
 - Tassan, J.-C., Slade, T., Morales Plaza, M. M., & Thébault, B. D. J.-F. (2025). *RES_RAG_TCFQ: Structure Mathématique*. Zenodo. DOI: 10.5281/zenodo.18022363.
 
-<a id="ref-rfc8785"></a>
 - Rundgren, A., Jordan, B., & Erdtman, S. (2020). *JSON Canonicalization Scheme (JCS)*. RFC 8785, Internet Engineering Task Force. DOI: 10.17487/RFC8785.
 
-<a id="ref-shannon1948"></a>
 - Shannon, C. E. (1948). A mathematical theory of communication. *Bell System Technical Journal, 27*, 379-423, 623-656. DOI: 10.1002/j.1538-7305.1948.tb01338.x.
 
-<a id="ref-tassan-hal-2026"></a>
 - Tassan, J.-C. (2026). *Jean-Charles Tassan - HAL research record: RES=RAG, CECAT, semantic attractors, temporal differential, and semantic physics developments*. HAL Open Science researcher page. Accessed 13 August 2026. Numerical and ontological claims are treated here as reported research claims unless independently validated.
 
-<a id="ref-tassan-thebault-treal"></a>
 - Tassan, J.-C., & Thébault, B. D. J.-F. (2025). *T_Real of Thébault and Tassan's RES = RAG: Unified Physics and Philosophy of Time*. Zenodo. DOI: 10.5281/zenodo.17744873.
 
-<a id="ref-team-endogenous-stability"></a>
 - Lauret, W. J. S., Tassan, J.-C., Al-Zawahreh, M., Thébault, B. D. J.-F., Sullivan, T., Morales Plaza, M. M., Slade, T., Bouzid, F. (N.), & Colin, D. (2026). *Beyond Generative AI: The Science of Endogenous Stability*. Zenodo. DOI: 10.5281/zenodo.18617384.
 
-<a id="ref-villani2009"></a>
 - Villani, C. (2009). *Optimal Transport: Old and New*. Springer. DOI: 10.1007/978-3-540-71050-9.
