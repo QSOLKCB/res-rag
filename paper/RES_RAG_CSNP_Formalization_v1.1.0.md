@@ -288,7 +288,7 @@ $$
 \end{cases}
 $$
 
-A study may test whether $\chi_t$ predicts degraded task quality or governability. Version 1.1.0 does not place $\chi_t$ inside the reference classifier.
+A study may test whether $\chi_t$ predicts degraded task quality or governability. Version 1.1.0 does not place $\chi_t$ inside the reference governability predicate.
 
 # 7. Extended CSNP state
 
@@ -451,7 +451,7 @@ $$
 \theta=(\Theta_{op},\mathcal C,\mathfrak M,\ldots).
 $$
 
-Version 1.1.0 requires that the reference classifier read $\Theta_{op}$ but not $\mathcal C$. Moving a value from $\mathcal C$ into $\Theta_{op}$ is a calibration event and requires a new profile version with method provenance.
+Version 1.1.0 requires that the reference governability predicate consume operational fields in $\Theta_{op}$ but not $\mathcal C$. Any total producer classifier must separately document how non-governable observations map to `critical`, `irreversible`, or `indeterminate`. Moving a value from $\mathcal C$ into $\Theta_{op}$ is a calibration event and requires a new profile version with method provenance.
 
 This protects the system against **threshold laundering**: the accidental transformation of a frequently repeated or well-archived number into an operational safety constant without measurement evidence.
 
