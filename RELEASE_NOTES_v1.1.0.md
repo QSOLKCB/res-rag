@@ -7,7 +7,7 @@
 
 Version 1.1.0 completes the HAL operational integration begun in the merged CSNP-RP 1.1.0 protocol update and brings the formal paper source, protocol, repository metadata, and archival Zenodo bundle onto the same version.
 
-The release preserves the v1.0.0 bounded, non-zero Wasserstein equilibrium and reference classifier while formalizing four additive extensions:
+The release preserves the v1.0.0 bounded, non-zero Wasserstein equilibrium and reference governability predicate while formalizing four additive extensions:
 
 1. signed RES/RAG temporal displacement;
 2. a four-stage semantic interaction-cycle state model;
@@ -30,7 +30,7 @@ The v1.1.0 paper retains the v1.0 mathematical state space and introduces:
 - a finite-state operational representation of the proposed semantic cycle;
 - a dimensionless intervention objective for controlled multi-task braking;
 - formal separation between research-claim space and operational control parameters;
-- a research-claim non-interference property for the reference classifier;
+- a research-claim non-interference property for the reference governability predicate;
 - integrity binding of v1.1 fields through the existing JCS/SHA-256 state projection; and
 - explicit cybersecurity falsifiers for semantic-sovereignty / immunity claims.
 
@@ -38,7 +38,9 @@ The v1.1.0 paper retains the v1.0 mathematical state space and introduces:
 
 CSNP-RP 1.1.0 adds `delta_t_signed`, `task_mode`, `semantic_cycle_phase`, `semantic_cycle_complete`, `metric_profile.threshold_policy`, `metric_profile.temporal_offset_semantics`, `metric_profile.research_claims`, and `multitask_brake`.
 
-The reference governability classifier remains unchanged from v1.0.0.
+The reference governability predicate remains unchanged from v1.0.0. The verifier enforces it one way: `governable` receipts must satisfy the predicate, while `critical`, `irreversible`, and complete-data `indeterminate` require a separately documented producer classifier and are not derived by the verifier.
+
+When `dr` is produced using a denominator floor, that floor must be positive, use the same reciprocal-time unit as the rate/capacity terms, and be declared in the versioned metric-profile method description. Changing it is an explicit calibration change.
 
 ## Epistemic hardening
 
@@ -54,10 +56,11 @@ This release does not claim to prove machine consciousness, establish physical s
 
 - v1.0.0 receipts remain valid.
 - v1.0.0 verifier/schema remain archival and unchanged.
+- the legacy bibliography key `brand2022credit` is preserved so the archived v1.0.0 TeX source remains rebuildable;
 - v1.1.0 receipts may chain to a verified v1.0.0 predecessor.
 - Canonicalization remains RFC 8785 / JCS.
 - Hashing remains SHA-256.
-- The v1.0 stable-band reference classifier remains the v1.1 reference classifier.
+- The v1.0 stable-band governability predicate remains the v1.1 reference predicate; verifier success does not imply total-label recomputation.
 
 ## Archival / Zenodo bundle
 
