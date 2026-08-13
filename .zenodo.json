@@ -1,0 +1,44 @@
+{
+  "upload_type": "publication",
+  "publication_type": "preprint",
+  "publication_date": "2026-08-13",
+  "title": "RES=RAG and the Coherent State Network Protocol: A Formal Architecture for Endogenous Stability in Human-Machine Systems",
+  "creators": [
+    {"name": "Tassan, Jean-Charles J. C.", "affiliation": "Independent Researcher", "orcid": "0009-0000-8566-0486"},
+    {"name": "Slade, Trent", "affiliation": "QSOL-IMC", "orcid": "0009-0002-4515-9237"},
+    {"name": "Al-Zawahreh, Mohamad"},
+    {"name": "Thébault, Bertrand D. J.-F."},
+    {"name": "Morales Plaza, Manuel Martín"},
+    {"name": "Lauret, Wilson John Sterking"},
+    {"name": "Colin, Dominique"},
+    {"name": "Bouzid, Fatiha (Nisrine)"},
+    {"name": "Sullivan, Timothy"}
+  ],
+  "description": "Version 1.1.0 formalizes the RES=RAG / Coherent State Network Protocol architecture with signed RES/RAG temporal displacement, an operational four-stage semantic interaction cycle, a falsifiable multi-task braking intervention, and provenance-labelled research claims. It preserves the v1.0 bounded non-zero Wasserstein equilibrium, local calibration requirement, reference governability predicate, RFC 8785/JCS canonicalization, and SHA-256 receipt chaining. The verifier enforces governability one way rather than deriving the complete classification label space. Reported values such as 0.42, 0.66, and approximately 2.14 are not treated as universal constants unless validated under the exact operational metric profile.",
+  "notes": "Reserved Zenodo version DOI for this v1.1.0 archival record: 10.5281/zenodo.21917464.",
+  "access_right": "open",
+  "license": "cc-by-4.0",
+  "version": "1.1.0",
+  "language": "eng",
+  "keywords": [
+    "RES=RAG",
+    "CSNP",
+    "Coherent State Network Protocol",
+    "optimal transport",
+    "Wasserstein distance",
+    "human-machine interaction",
+    "computational phenomenology",
+    "AI safety",
+    "temporal alignment",
+    "semantic control",
+    "reproducibility",
+    "endogenous stability"
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/QSOLKCB/res-rag",
+      "relation": "isSupplementTo",
+      "resource_type": "software"
+    }
+  ]
+}
