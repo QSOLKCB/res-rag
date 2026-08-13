@@ -9,7 +9,7 @@
 
 **Version 1.1.0 citation team:** Jean-Charles J. C. Tassan; Trent Slade; Mohamad Al-Zawahreh; Bertrand D. J.-F. Thébault; Manuel Martín Morales Plaza; Wilson John Sterking Lauret; Dominique Colin; Fatiha (Nisrine) Bouzid; and Timothy Sullivan. See [`AUTHORS.md`](AUTHORS.md) and [`paper/CONTRIBUTIONS.md`](paper/CONTRIBUTIONS.md).
 
-> **v1.1.0:** the HAL-derived operational extension is now formally integrated into the paper. It adds signed `T_RAG - T_RES`, a four-stage operational semantic-cycle model, a falsifiable multi-task braking intervention, and provenance-labelled numerical research claims while preserving local calibration and the v1.0 reference classifier.
+> **v1.1.0:** the HAL-derived operational extension is now formally integrated into the paper. It adds signed `T_RAG - T_RES`, a four-stage operational semantic-cycle model, a falsifiable multi-task braking intervention, and provenance-labelled numerical research claims while preserving local calibration and the v1.0 reference governability predicate.
 
 <p align="center">
   <strong><a href="https://github.com/QSOLKCB/res-rag-viz">Open the RES=RAG Visual &amp; Sonification Research Lab →</a></strong><br>
@@ -51,13 +51,13 @@ The additive deterministic receipt profile adds:
 - provenance-labelled `metric_profile.research_claims`
 - intervention `multitask_brake`
 
-The reference governability classifier remains unchanged from v1.0.0. Existing v1.0.0 receipts remain valid, and a v1.1.0 receipt may chain to a verified v1.0.0 predecessor. Hashing remains SHA-256 over RFC 8785 / JCS canonical JSON.
+The reference governability predicate remains unchanged from v1.0.0. The verifier enforces it one way: a receipt labelled `governable` must satisfy the predicate, while `critical`, `irreversible`, and complete-data `indeterminate` require a separately documented producer classifier and are not derived from measurements by the verifier. Existing v1.0.0 receipts remain valid, and a v1.1.0 receipt may chain to a verified v1.0.0 predecessor. Hashing remains SHA-256 over RFC 8785 / JCS canonical JSON.
 
 ## Scientific boundary
 
 Version 1.1.0 does **not** claim to prove machine consciousness, treat semantic-cycle completion as a consciousness test, establish physical semantic physics, guarantee multi-task braking as a safety mechanism, establish 0.42 / 0.66 / approximately 2.14 as universal constants, or replace conventional cybersecurity controls with semantic filtering.
 
-Reported values can be preserved with provenance without being allowed to alter the reference classifier. Moving a reported value into operational control space is an explicit recalibration event requiring a new metric-profile version and method provenance.
+Reported values can be preserved with provenance without being allowed to alter the reference governability predicate. Moving a reported value into operational control space is an explicit recalibration event requiring a new metric-profile version and method provenance.
 
 ## Release artifacts
 
